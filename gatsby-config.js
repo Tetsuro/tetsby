@@ -6,7 +6,13 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    title: 'Tetchi Blog',
+    description: 'Tetchi\'s blog about life and stuff',
+    author: '@t3tchi',
+  },
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -38,7 +44,7 @@ module.exports = {
           '**/categories',
           '**/posts',
           '**/pages',
-          '**/media',
+          // '**/media',
           '**/tags',
         ],
         excludedRoutes: ['**/posts/1456'],
