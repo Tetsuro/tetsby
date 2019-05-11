@@ -8,6 +8,6 @@
   },
   "rules": {
     "semi": "error",
-    "quotes": "single"
+    "quotes": ["error", "single"]
   }
 }
