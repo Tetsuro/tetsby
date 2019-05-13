@@ -9,10 +9,8 @@ class Header extends Component {
 
     return (
       <header className={styles.Header}>
-        <h1>
-          <img src={logo} className={styles.Logo} />
-          <span>{title}</span>
-        </h1>
+        <img src={logo} className={styles.Logo} />
+        <h1 className={styles.Heading}>{title}</h1>
         <h4>{description}</h4>
       </header>
     );

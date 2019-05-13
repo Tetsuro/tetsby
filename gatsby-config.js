@@ -15,7 +15,13 @@ module.exports = {
   plugins: [
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: '@import "helpers.scss";',
+        includePaths: ['src/stylesheets'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-image',
     {
