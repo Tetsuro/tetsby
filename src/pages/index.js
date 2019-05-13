@@ -1,3 +1,11 @@
-import React from "react"
+import React from 'react';
 
-export default () => <div>Hello world!</div>
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
+
+export default () => (
+  <Layout>
+    <Seo />
+    Hello world!
+  </Layout>
+);

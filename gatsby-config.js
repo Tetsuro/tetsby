@@ -6,7 +6,31 @@ require('dotenv').config({
 });
 
 module.exports = {
+  siteMetadata: {
+    title: 'Tetchi Blog',
+    description: 'Tetchi\'s blog about life and stuff',
+    twitter: '@t3tchi',
+    github: 'Tetsuro',
+  },
   plugins: [
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        data: '@import "helpers.scss";',
+        includePaths: ['src/stylesheets'],
+      },
+    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-image',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: 'gatsby-source-wordpress',
       options: {
@@ -38,7 +62,7 @@ module.exports = {
           '**/categories',
           '**/posts',
           '**/pages',
-          '**/media',
+          // '**/media',
           '**/tags',
         ],
         excludedRoutes: ['**/posts/1456'],

@@ -1,0 +1,30 @@
+@function rem($pixelValue) {
+  @return $pixelValue / 16 + rem;
+}
+
+$colors: (
+  "white": #fff,
+  "dark-gray": #1c1f2a,
+);
+
+@function get-color($color) {
+  @return map-get($colors, $color);
+}
+
+$spacings: (
+  "normal": rem(20),
+  "half": rem(10),
+  "double": rem(40),
+);
+
+@function get-spacing($spacing: "normal") {
+  @return map-get($spacings, $spacing);
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}

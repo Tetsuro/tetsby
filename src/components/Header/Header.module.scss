@@ -1,0 +1,16 @@
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: get-spacing("double") 0;
+}
+
+.Heading {
+  @include visually-hidden;
+}
+
+.Logo {
+  max-width: rem(150);
+  max-height: rem(150);
+  margin-bottom: get-spacing();
+}
