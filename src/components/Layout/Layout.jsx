@@ -23,7 +23,7 @@ class Layout extends Component {
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
+      query {
         site {
           siteMetadata {
             title

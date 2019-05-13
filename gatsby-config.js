@@ -9,10 +9,22 @@ module.exports = {
   siteMetadata: {
     title: 'Tetchi Blog',
     description: 'Tetchi\'s blog about life and stuff',
-    author: '@t3tchi',
+    twitter: '@t3tchi',
+    github: 'Tetsuro',
   },
   plugins: [
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
+    'gatsby-image',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      },
+    },
     {
       resolve: 'gatsby-source-wordpress',
       options: {
