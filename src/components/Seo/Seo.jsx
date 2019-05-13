@@ -8,6 +8,8 @@ class Seo extends Component {
 
     return (
       <Helmet
+        title={title}
+        titleTemplate={`%s | ${site.siteMetadata.title}`}
         meta={[
           {
             name: 'description',
