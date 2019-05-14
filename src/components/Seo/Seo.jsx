@@ -5,10 +5,11 @@ import { StaticQuery, graphql } from 'gatsby';
 class Seo extends Component {
   render() {
     const { title, description } = this.props;
+    console.log(this.props);
 
     return (
       <Helmet
-        title={title}
+        title="test"
         titleTemplate={`%s | ${site.siteMetadata.title}`}
         meta={[
           {

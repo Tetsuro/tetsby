@@ -24,16 +24,16 @@ exports.createPages = ({ graphql, actions }) => {
       const olderPostSlug =
         i === posts.length - 1 ? null : posts[i + 1].node.slug;
 
-      // createPage({
-      //   path: node.slug,
-      //   component: path.resolve('./src/templates/Post.jsx'),
-      //   context: {
-      //     slug: node.slug,
-      //     wordpressId: node.wordpress_id,
-      //     newerPostSlug,
-      //     olderPostSlug,
-      //   },
-      // });
+      createPage({
+        path: node.slug,
+        component: path.resolve('./src/templates/Post.jsx'),
+        context: {
+          slug: node.slug,
+          wordpressId: node.wordpress_id,
+          newerPostSlug,
+          olderPostSlug,
+        },
+      });
 
       createPage({
         path: i === 0 ? '/' : `/page/${i + 1}`,

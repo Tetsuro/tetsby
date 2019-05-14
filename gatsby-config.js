@@ -62,8 +62,9 @@ module.exports = {
           '**/categories',
           '**/posts',
           '**/pages',
-          // '**/media',
           '**/tags',
+          '**/comments',
+          // '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
         normalizer: function({ entities }) {

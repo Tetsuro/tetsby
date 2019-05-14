@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 // import Image from '../components/image';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 
 class PostListing extends Component {
   render() {
@@ -14,25 +13,21 @@ class PostListing extends Component {
     // const defaultThumbnail = this.props.data.allImageSharp.edges[0].node.fixed;
     const listItems = nodes.map(item => {
       return (
-        <li>
-          <span
-            dangerouslySetInnerHTML={{
-              __html: item.title,
-            }}
-          />
+        <li key={item.id}>
+          <Link to={`/${item.slug}`}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: item.title,
+              }}
+            />
+          </Link>
         </li>
       );
     });
 
     return (
       <Layout>
-        <SEO title="Home" />
-        {/* <PostList
-          nodes={nodes}
-          defaultThumbnail={defaultThumbnail}
-          currentPage={currentPage}
-          numberOfPages={numberOfPages}
-        /> */}
+        <Seo />
         <ul>{listItems}</ul>
       </Layout>
     );
