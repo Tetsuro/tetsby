@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-// import Image from '../components/image';
-import Seo from '../components/seo';
+import SEO from '../components/seo';
 
-class PostListing extends Component {
+class Listing extends Component {
   render() {
     const { edges } = this.props.data.allWordpressPost;
     const nodes = edges.map(({ node }) => node);
@@ -27,7 +26,7 @@ class PostListing extends Component {
 
     return (
       <Layout>
-        <Seo />
+        <SEO />
         <ul>{listItems}</ul>
       </Layout>
     );
@@ -48,4 +47,4 @@ export const query = graphql`
   }
 `;
 
-export default PostListing;
+export default Listing;
