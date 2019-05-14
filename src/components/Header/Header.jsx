@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
 import styles from './Header.module.scss';
-
 import logo from '../../images/tetchi-burger.gif';
 
 class Header extends Component {
