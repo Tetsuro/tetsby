@@ -7,9 +7,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'Tetchi Blog',
+    title: 'tetchi blog',
     description: 'Tetchi\'s blog about life and stuff',
     twitter: '@t3tchi',
+    author: 'Tetchi',
     github: 'Tetsuro',
   },
   plugins: [
@@ -62,8 +63,9 @@ module.exports = {
           '**/categories',
           '**/posts',
           '**/pages',
-          // '**/media',
           '**/tags',
+          '**/comments',
+          // '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
         normalizer: function({ entities }) {
