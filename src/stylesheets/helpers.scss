@@ -2,9 +2,14 @@
   @return $pixelValue / 16 + rem;
 }
 
+@function get-border() {
+  @return 1px solid #ddd;
+}
+
 $colors: (
   "white": #fff,
-  "dark-gray": #1c1f2a,
+  "gray-light": #e5e5e5,
+  "gray-dark": #1c1f2a,
 );
 
 @function get-color($color) {

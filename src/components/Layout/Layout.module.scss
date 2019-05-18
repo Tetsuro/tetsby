@@ -2,3 +2,9 @@
   max-width: 620px;
   margin: 0 auto;
 }
+
+.Content {
+  margin-bottom: get-spacing("double");
+  padding-bottom: get-spacing("double");
+  border-bottom: get-border();
+}
