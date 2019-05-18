@@ -10,7 +10,8 @@
 }
 
 .Logo {
-  max-width: rem(150);
-  max-height: rem(150);
+  display: block;
+  width: rem(150);
+  height: rem(150);
   margin-bottom: get-spacing();
 }

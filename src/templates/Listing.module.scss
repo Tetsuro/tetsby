@@ -1,0 +1,19 @@
+.Listing {
+  margin-left: 0;
+  margin-bottom: get-spacing("double");
+  padding-bottom: get-spacing("double");
+  border-bottom: get-border();
+  list-style: none;
+}
+
+.ListingPagination {
+  margin-bottom: get-spacing("double");
+  padding-bottom: get-spacing("double");
+  border-bottom: get-border();
+  display: flex;
+  justify-content: space-between;
+}
+
+.NextPostsLink {
+  margin-left: auto;
+}

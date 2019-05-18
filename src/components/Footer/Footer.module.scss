@@ -1,5 +1,6 @@
 .Footer {
   text-align: center;
+  margin-bottom: get-spacing("double");
 
   a {
     padding: 0 get-spacing("half");
