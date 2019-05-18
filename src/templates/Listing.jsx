@@ -4,6 +4,8 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
+import styles from './Listing.module.scss';
+
 class Listing extends Component {
   render() {
     const { edges } = this.props.data.allWordpressPost;
@@ -16,7 +18,7 @@ class Listing extends Component {
     const newerPostsLinkUrl =
       currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`;
     const newerPostsLinkMarkup = isFirst ? null : (
-      <Link to={newerPostsLinkUrl} rel="prev">
+      <Link to={newerPostsLinkUrl} rel="prev" className={styles.NextPostsLink}>
         Newer posts →
       </Link>
     );
@@ -45,8 +47,8 @@ class Listing extends Component {
     return (
       <Layout>
         <SEO />
-        <ul>{listItems}</ul>
-        <div>
+        <ul className={styles.Listing}>{listItems}</ul>
+        <div className={styles.ListingPagination}>
           {olderPostsLinkMarkup}
           {newerPostsLinkMarkup}
         </div>
