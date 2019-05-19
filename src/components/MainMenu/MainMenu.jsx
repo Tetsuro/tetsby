@@ -12,6 +12,7 @@ class MainMenu extends Component {
         to={link.url}
         key={link.wordpress_id}
         className={styles.MainMenuLink}
+        activeClassName={styles.MainMenuLinkIsActive}
       >
         {link.title}
       </Link>
