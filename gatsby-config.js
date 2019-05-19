@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
-        data: '@import "helpers.scss";',
+        data: '@import "styles.scss";',
         includePaths: ['src/stylesheets'],
       },
     },
@@ -65,6 +65,7 @@ module.exports = {
           '**/pages',
           '**/tags',
           '**/comments',
+          '**/menus',
           // '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],

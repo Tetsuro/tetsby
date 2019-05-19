@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 
+import MainMenu from '../MainMenu';
+
 import styles from './Header.module.scss';
 import logo from '../../images/tetchi-burger.gif';
 
@@ -10,11 +12,14 @@ class Header extends Component {
 
     return (
       <header className={styles.Header}>
-        <Link to="/">
+        <Link className={styles.HeaderHomeLink} to="/">
+          <h1 className={styles.Heading}>{title}</h1>
           <img src={logo} className={styles.Logo} />
         </Link>
-        <h1 className={styles.Heading}>{title}</h1>
-        <h4>{description}</h4>
+        <div className={styles.HeaderNav}>
+          <h4 className={styles.HeaderDescription}>{description}</h4>
+          <MainMenu />
+        </div>
       </header>
     );
   }

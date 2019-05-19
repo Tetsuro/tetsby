@@ -1,8 +1,15 @@
 .Header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: get-spacing("double") 0;
+  margin-bottom: get-spacing("double");
+  border-bottom: get-border();
+  align-items: center;
+
+  @include tablet-and-up {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .Heading {
@@ -13,5 +20,30 @@
   display: block;
   width: rem(150);
   height: rem(150);
+  margin: 0;
+}
+
+.HeaderHomeLink {
   margin-bottom: get-spacing();
+  display: block;
+  flex-shrink: 0;
+
+  @include tablet-and-up {
+    margin-bottom: 0;
+  }
+}
+
+.HeaderNav {
+  text-align: right;
+}
+
+.HeaderDescription {
+  display: none;
+
+  @include tablet-and-up {
+    display: block;
+    padding-bottom: get-spacing("half");
+    margin-bottom: get-spacing("half");
+    border-bottom: get-border();
+  }
 }
