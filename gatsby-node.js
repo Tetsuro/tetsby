@@ -13,8 +13,30 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressPage {
+        edges {
+          node {
+            title
+            content
+            slug
+            wordpress_id
+          }
+        }
+      }
     }
   `).then(result => {
+    const pages = result.data.allWordpressPage.edges;
+
+    pages.forEach(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve('./src/templates/Page.jsx'),
+        context: {
+          slug: node.slug,
+        },
+      });
+    });
+
     const posts = result.data.allWordpressPost.edges;
     const postsPerPage = 20;
     const numberOfPages = Math.ceil(posts.length / postsPerPage);

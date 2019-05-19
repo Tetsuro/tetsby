@@ -2,6 +2,14 @@
   text-decoration: none;
 
   &:not(:first-child) {
-    margin-left: get-spacing("double");
+    margin-left: get-spacing('double');
   }
+}
+
+.MainMenuLink {
+  color: get-color('black');
+}
+
+.MainMenuLinkIsActive {
+  color: get-color('blue');
 }
