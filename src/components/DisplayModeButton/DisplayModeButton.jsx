@@ -5,7 +5,9 @@ import styles from './DisplayModeButton.module.scss';
 
 export default class DisplayModeButton extends Component {
   render() {
-    const { toggleDisplayMode } = this.props;
+    const { toggleDisplayMode, displayMode } = this.props;
+    const oppositeMode = displayMode === 'light' ? 'dark' : 'light';
+    const modeEmoji = displayMode === 'light' ? '🌙️' : '☀️';
 
     return (
       <button
@@ -13,7 +15,7 @@ export default class DisplayModeButton extends Component {
         onClick={toggleDisplayMode}
         className={styles.DisplayModeButton}
       >
-        Switch to mode
+        {modeEmoji} Switch to {oppositeMode} mode
       </button>
     );
   }

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
-
 import DisplayModeButton from '../DisplayModeButton';
 
 import styles from './Footer.module.scss';
 
 class Footer extends Component {
   render() {
-    const { twitter, github, toggleDisplayMode } = this.props;
+    const { twitter, github, toggleDisplayMode, displayMode } = this.props;
 
     return (
       <footer className={styles.Footer}>
@@ -19,7 +17,10 @@ class Footer extends Component {
             Github
           </a>
         </div>
-        <DisplayModeButton toggleDisplayMode={toggleDisplayMode} />
+        <DisplayModeButton
+          toggleDisplayMode={toggleDisplayMode}
+          displayMode={displayMode}
+        />
       </footer>
     );
   }

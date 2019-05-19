@@ -2,10 +2,6 @@
   @return $pixelValue / 16 + rem;
 }
 
-@function get-border() {
-  @return 1px solid #ddd;
-}
-
 @function get-radius() {
   @return 5px;
 }

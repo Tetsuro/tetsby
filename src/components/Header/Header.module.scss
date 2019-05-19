@@ -2,13 +2,16 @@
   display: flex;
   flex-direction: column;
   padding: get-spacing('double') 0;
-  margin-bottom: get-spacing('quad');
-  border-bottom: get-border();
+  margin-bottom: get-spacing('double');
   align-items: center;
 
   @include tablet-and-up {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
   }
 }
 

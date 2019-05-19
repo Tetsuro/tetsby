@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -17,7 +18,7 @@ class Layout extends Component {
 
   componentDidMount() {
     const initialDisplayMode = window.localStorage.getItem('displayMode');
-    console.log(initialDisplayMode);
+
     this.setState({
       displayMode: initialDisplayMode,
     });
@@ -25,15 +26,22 @@ class Layout extends Component {
 
   render() {
     const { children, title, description, twitter, github } = this.props;
+    const { displayMode } = this.state;
 
     return (
       <div className={styles.Container}>
-        <Header title={title} description={description} />
+        <Helmet htmlAttributes={{ displayMode }} />
+        <Header
+          title={title}
+          description={description}
+          displayMode={displayMode}
+        />
         <main className={styles.Content}>{children}</main>
         <Footer
           twitter={twitter}
           github={github}
           toggleDisplayMode={this.toggleDisplayMode.bind(this)}
+          displayMode={displayMode}
         />
       </div>
     );

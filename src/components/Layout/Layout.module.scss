@@ -6,5 +6,8 @@
 
 .Content {
   margin-bottom: get-spacing('double');
-  border-bottom: get-border();
+
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
+  }
 }

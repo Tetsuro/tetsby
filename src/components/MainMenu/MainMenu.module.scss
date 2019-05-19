@@ -5,7 +5,10 @@
   @include tablet-and-up {
     padding-bottom: get-spacing();
     margin-bottom: get-spacing();
-    border-bottom: get-border();
+
+    @include applyTheme($themes) {
+      border-bottom: 1px solid themed('borderColor');
+    }
   }
 }
 
@@ -18,9 +21,13 @@
 }
 
 .MainMenuLink {
-  color: get-color('black');
+  @include applyTheme($themes) {
+    color: themed('navLinkColor');
+  }
 }
 
 .MainMenuLinkIsActive {
-  color: get-color('blue');
+  @include applyTheme($themes) {
+    color: themed('navActiveLinkColor');
+  }
 }
