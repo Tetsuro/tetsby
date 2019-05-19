@@ -9,6 +9,8 @@ body {
     background-color: themed('backgroundColor');
     color: themed('textColor');
   }
+
+  transition: background-color 200ms ease;
 }
 
 h1,
@@ -29,7 +31,7 @@ h1 {
   text-align: center;
   font-size: rem(36);
   line-height: 3rem;
-  margin-bottom: get-spacing('double');
+  margin-bottom: get-spacing('quad');
 }
 
 h2 {
