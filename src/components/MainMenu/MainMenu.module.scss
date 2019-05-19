@@ -1,0 +1,7 @@
+.MainMenuLink {
+  text-decoration: none;
+
+  &:not(:first-child) {
+    margin-left: get-spacing("double");
+  }
+}
