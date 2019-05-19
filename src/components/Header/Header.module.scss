@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: get-spacing('double') 0;
-  margin-bottom: get-spacing('double');
+  margin-bottom: get-spacing('quad');
   border-bottom: get-border();
   align-items: center;
 
@@ -33,19 +33,14 @@
   }
 }
 
-.HeaderNav {
-  text-align: right;
-}
-
 .HeaderDescription {
   display: none;
   font-family: 'Noto Serif';
   font-weight: normal;
+  color: get-color('gray');
+  font-size: rem(16);
 
   @include tablet-and-up {
     display: block;
-    padding-bottom: get-spacing('half');
-    margin-bottom: get-spacing('half');
-    border-bottom: get-border();
   }
 }

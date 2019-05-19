@@ -4,7 +4,7 @@
 body {
   font-family: 'Noto Serif', serif;
   font-size: 1.2rem;
-  color: get-color('gray-light');
+  color: get-color('gray');
 }
 
 h1,
@@ -19,20 +19,42 @@ h6 {
 }
 
 h1 {
-  font-size: 2rem;
   text-align: center;
+  font-size: 2rem;
+  line-height: 3rem;
   padding-top: get-spacing();
-  margin-bottom: get-spacing('double');
+  margin-bottom: get-spacing('quad');
 }
 
 h2 {
   font-size: 1.6rem;
   text-decoration: underline;
   margin-bottom: get-spacing('double');
+  color: get-color('gray');
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: get-spacing('double');
+  color: get-color('gray');
+}
+
+a {
+  color: get-color('blue');
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: get-color('blue-dark');
+  }
+
+  &:visited {
+    color: get-color('purple');
+  }
 }
 
 p {
-  line-height: 2rem;
+  line-height: 2.2rem;
   margin-bottom: get-spacing('double');
 }
 
@@ -52,17 +74,23 @@ video {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: get-radius();
 }
 
 ul {
-  line-height: 2rem;
+  line-height: 2.2rem;
   list-style-type: disc;
+  margin-left: get-spacing('double');
   margin-bottom: get-spacing('double');
 }
 
 li {
   &:not(last-child) {
     margin-bottom: get-spacing('half');
+  }
+
+  > ul {
+    margin-bottom: 0;
   }
 }
 
@@ -75,19 +103,6 @@ hr {
   margin: 0 auto get-spacing('double');
 }
 
-// WP Modifiers
-.aligncenter {
+figcaption {
   text-align: center;
-}
-
-.alignwide {
-  margin-left: calc(25% - 25vw);
-  margin-right: calc(25% - 25vw);
-  width: auto;
-  max-width: 1000%;
-  text-align: center;
-}
-
-.wp-block-image {
-  display: none;
 }

@@ -17,8 +17,8 @@ class Header extends Component {
           <img src={logo} className={styles.Logo} />
         </Link>
         <div className={styles.HeaderNav}>
-          <h4 className={styles.HeaderDescription}>{description}</h4>
           <MainMenu />
+          <h4 className={styles.HeaderDescription}>{description}</h4>
         </div>
       </header>
     );

@@ -1,7 +1,7 @@
 .Container {
   max-width: 620px;
   margin: 0 auto;
-  padding: 0 get-spacing();
+  padding: 0 get-spacing('double');
 }
 
 .Content {

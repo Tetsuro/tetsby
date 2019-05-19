@@ -6,10 +6,15 @@
   @return 1px solid #ddd;
 }
 
+@function get-radius() {
+  @return 5px;
+}
+
 $spacings: (
   'normal': rem(20),
   'half': rem(10),
   'double': rem(40),
+  'quad': rem(80),
 );
 
 @function get-spacing($spacing: 'normal') {
