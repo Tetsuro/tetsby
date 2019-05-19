@@ -7,6 +7,22 @@ import Footer from '../Footer';
 import styles from './Layout.module.scss';
 
 class Layout extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      displayMode: undefined,
+    };
+  }
+
+  componentDidMount() {
+    const initialDisplayMode = window.localStorage.getItem('displayMode');
+    console.log(initialDisplayMode);
+    this.setState({
+      displayMode: initialDisplayMode,
+    });
+  }
+
   render() {
     const { children, title, description, twitter, github } = this.props;
 
@@ -14,9 +30,24 @@ class Layout extends Component {
       <div className={styles.Container}>
         <Header title={title} description={description} />
         <main className={styles.Content}>{children}</main>
-        <Footer twitter={twitter} github={github} />
+        <Footer
+          twitter={twitter}
+          github={github}
+          toggleDisplayMode={this.toggleDisplayMode.bind(this)}
+        />
       </div>
     );
+  }
+
+  toggleDisplayMode() {
+    const { displayMode } = this.state;
+    const modeToSwitchTo = displayMode === 'dark' ? 'light' : 'dark';
+
+    window.localStorage.setItem('displayMode', modeToSwitchTo);
+
+    this.setState({
+      displayMode: modeToSwitchTo,
+    });
   }
 }
 
