@@ -3,12 +3,60 @@ $colors: (
   'black': #000,
   'blue': #3399cc,
   'blue-dark': #0a699a,
+  'blue-light': #60caff,
   'gray': #535353,
-  'gray-lightest': #e5e5e5,
+  'gray-light': #ddd,
   'gray-dark': #1c1f2a,
   'purple': #609,
+  'slate': #35373c,
 );
 
 @function get-color($color) {
   @return map-get($colors, $color);
+}
+
+$themes: (
+  light: (
+    backgroundColor: get-color('white'),
+    textColor: get-color('gray'),
+    linkColor: get-color('blue'),
+    headingColor: get-color('black'),
+    borderColor: get-color('gray-light'),
+    navLinkColor: get-color('black'),
+    navActiveLinkColor: get-color('blue'),
+  ),
+  dark: (
+    backgroundColor: get-color('gray-dark'),
+    textColor: get-color('white'),
+    linkColor: get-color('blue-light'),
+    headingColor: get-color('white'),
+    borderColor: get-color('slate'),
+    navLinkColor: get-color('white'),
+    navActiveLinkColor: get-color('blue-light'),
+  ),
+);
+
+// Shoutouts to https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1 😘
+@mixin applyTheme($themes: $themes) {
+  @each $theme, $map in $themes {
+    html[displayMode='#{$theme}'] & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
 }

@@ -3,8 +3,14 @@
 
 body {
   font-family: 'Noto Serif', serif;
-  font-size: 1.2rem;
-  color: get-color('gray');
+  font-size: rem(18);
+
+  @include applyTheme($themes) {
+    background-color: themed('backgroundColor');
+    color: themed('textColor');
+  }
+
+  transition: background-color 200ms ease;
 }
 
 h1,
@@ -15,14 +21,16 @@ h5,
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  color: get-color('black');
+
+  @include applyTheme($themes) {
+    color: themed('headingColor');
+  }
 }
 
 h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: rem(36);
   line-height: 3rem;
-  padding-top: get-spacing();
   margin-bottom: get-spacing('quad');
 }
 
@@ -40,7 +48,9 @@ h3 {
 }
 
 a {
-  color: get-color('blue');
+  @include applyTheme($themes) {
+    color: themed('linkColor');
+  }
 
   &:hover,
   &:focus {
@@ -98,11 +108,15 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  background-color: get-color('gray-lightest');
+  background-color: get-color('gray-light');
   max-width: 20%;
   margin: 0 auto get-spacing('double');
 }
 
 figcaption {
   text-align: center;
+}
+
+button {
+  cursor: pointer;
 }
