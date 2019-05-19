@@ -6,18 +6,6 @@
   @return 1px solid #ddd;
 }
 
-$colors: (
-  'white': #fff,
-  'black': #000,
-  'blue': #3399cc,
-  'gray-light': #e5e5e5,
-  'gray-dark': #1c1f2a,
-);
-
-@function get-color($color) {
-  @return map-get($colors, $color);
-}
-
 $spacings: (
   'normal': rem(20),
   'half': rem(10),
