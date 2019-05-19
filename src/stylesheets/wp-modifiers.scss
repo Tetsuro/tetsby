@@ -1,0 +1,53 @@
+// WP Modifiers
+.aligncenter {
+  text-align: center;
+}
+
+.alignwide {
+  margin-left: calc(25% - 25vw);
+  margin-right: calc(25% - 25vw);
+  width: auto;
+  max-width: 1000%;
+  text-align: center;
+}
+
+.alignleft {
+  text-align: center;
+
+  @include tablet-and-up {
+    float: left;
+    margin-right: get-spacing('double');
+    margin-bottom: 0;
+
+    > img,
+    figcaption {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.alignright {
+  text-align: center;
+
+  @include tablet-and-up {
+    float: right;
+    margin-left: get-spacing('double');
+    margin-bottom: 0;
+
+    > img,
+    figcaption {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.embed-container {
+  margin-bottom: get-spacing('double');
+}
+
+.emoji {
+  border: 0;
+  width: rem(16);
+  height: rem(16);
+  vertical-align: baseline;
+}

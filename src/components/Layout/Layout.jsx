@@ -4,7 +4,6 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from '../Header';
 import Footer from '../Footer';
 
-import '../../stylesheets/base.scss';
 import styles from './Layout.module.scss';
 
 class Layout extends Component {

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i&display=swap');
+
+body {
+  font-family: 'Noto Serif', serif;
+  font-size: 1.2rem;
+  color: get-color('gray');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: get-color('black');
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 3rem;
+  padding-top: get-spacing();
+  margin-bottom: get-spacing('quad');
+}
+
+h2 {
+  font-size: 1.6rem;
+  text-decoration: underline;
+  margin-bottom: get-spacing('double');
+  color: get-color('gray');
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: get-spacing('double');
+  color: get-color('gray');
+}
+
+a {
+  color: get-color('blue');
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: get-color('blue-dark');
+  }
+
+  &:visited {
+    color: get-color('purple');
+  }
+}
+
+p {
+  line-height: 2.2rem;
+  margin-bottom: get-spacing('double');
+}
+
+figure {
+  margin-bottom: get-spacing('double');
+}
+
+figcaption {
+  margin-top: get-spacing('half');
+  font-size: 0.9rem;
+}
+
+video {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: get-radius();
+}
+
+ul {
+  line-height: 2.2rem;
+  list-style-type: disc;
+  margin-left: get-spacing('double');
+  margin-bottom: get-spacing('double');
+}
+
+li {
+  &:not(last-child) {
+    margin-bottom: get-spacing('half');
+  }
+
+  > ul {
+    margin-bottom: 0;
+  }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  background-color: get-color('gray-lightest');
+  max-width: 20%;
+  margin: 0 auto get-spacing('double');
+}
+
+figcaption {
+  text-align: center;
+}

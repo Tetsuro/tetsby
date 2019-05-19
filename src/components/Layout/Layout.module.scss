@@ -1,9 +1,9 @@
 .Container {
   max-width: 620px;
   margin: 0 auto;
-  padding: 0 get-spacing();
+  padding: 0 get-spacing('double');
 }
 
 .Content {
-  margin-bottom: get-spacing("double");
+  margin-bottom: get-spacing('double');
 }
