@@ -31,7 +31,11 @@ h1 {
   text-align: center;
   font-size: rem(36);
   line-height: 3rem;
-  margin-bottom: get-spacing('quad');
+  margin-bottom: get-spacing('double');
+
+  @include tablet-and-up {
+    margin-bottom: get-spacing('quad');
+  }
 }
 
 h2 {
