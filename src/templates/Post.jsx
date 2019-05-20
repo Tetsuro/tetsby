@@ -3,6 +3,9 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+
+import styles from './Post.module.scss';
+
 // import CommentsList from '../components/CommentsList';
 // import CommentForm from '../components/CommentForm';
 // import PostFooterLinks from '../components/PostFooterLinks';
@@ -14,6 +17,7 @@ class Post extends Component {
       content,
       excerpt,
       wordpress_id,
+      date,
     } = this.props.data.wordpressPost;
     // const { edges } = this.props.data.allWordpressWpComments;
     // const { newerPostSlug, olderPostSlug } = this.props.pageContext;
@@ -27,7 +31,9 @@ class Post extends Component {
           dangerouslySetInnerHTML={{
             __html: title,
           }}
+          className={styles.PostHeading}
         />
+        <div className={styles.PostDate}>{date}</div>
         <div
           dangerouslySetInnerHTML={{
             __html: excerpt,
@@ -59,6 +65,7 @@ export const query = graphql`
       content
       wordpress_id
       excerpt
+      date(formatString: "MMMM Do, YYYY")
     }
     allWordpressWpComments(filter: { post: { eq: $wordpressId } }) {
       edges {
