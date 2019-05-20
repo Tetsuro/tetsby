@@ -108,9 +108,12 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  background-color: get-color('gray-light');
   max-width: 20%;
   margin: 0 auto get-spacing('double');
+
+  @include applyTheme($themes) {
+    background-color: themed('borderColor');
+  }
 }
 
 figcaption {
