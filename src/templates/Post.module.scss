@@ -1,0 +1,13 @@
+.PostHeading {
+  margin-bottom: get-spacing('half');
+}
+
+.PostDate {
+  text-align: center;
+  margin-bottom: get-spacing('double');
+  font-size: rem(14);
+
+  @include tablet-and-up {
+    margin-bottom: get-spacing('quad');
+  }
+}

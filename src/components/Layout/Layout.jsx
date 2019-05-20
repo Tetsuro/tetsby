@@ -12,12 +12,13 @@ class Layout extends Component {
     super();
 
     this.state = {
-      displayMode: undefined,
+      displayMode: 'light',
     };
   }
 
   componentDidMount() {
-    const initialDisplayMode = window.localStorage.getItem('displayMode');
+    const initialDisplayMode =
+      window.localStorage.getItem('displayMode') || 'light';
 
     this.setState({
       displayMode: initialDisplayMode,
@@ -25,8 +26,10 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, title, description, twitter, github } = this.props;
+    const { children, title, description, twitter, github, isPost } = this.props;
     const { displayMode } = this.state;
+
+    console.log(isPost);
 
     return (
       <div className={styles.Container}>

@@ -1,13 +1,15 @@
 .Header {
   display: flex;
   flex-direction: column;
-  padding: get-spacing('double') 0;
-  margin-bottom: get-spacing('quad');
+  padding: get-spacing() 0;
+  margin-bottom: get-spacing('double');
   align-items: center;
 
   @include tablet-and-up {
     flex-direction: row;
     justify-content: space-between;
+    padding: get-spacing('double') 0;
+    margin-bottom: get-spacing('quad');
   }
 
   @include applyTheme($themes) {
@@ -20,10 +22,15 @@
 }
 
 .Logo {
-  display: block;
+  opacity: 0;
   width: rem(150);
   height: rem(150);
   margin: 0;
+  transition: opacity 300ms ease;
+}
+
+.LogoIsLoaded {
+  opacity: 1;
 }
 
 .HeaderHomeLink {
@@ -40,10 +47,14 @@
   display: none;
   font-family: 'Noto Serif';
   font-weight: normal;
-  color: get-color('gray');
-  font-size: rem(16);
+  font-size: rem(14);
+  text-transform: uppercase;
 
   @include tablet-and-up {
     display: block;
+  }
+
+  @include applyTheme($themes) {
+    color: themed('textColor');
   }
 }
