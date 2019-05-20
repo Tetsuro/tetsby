@@ -12,12 +12,13 @@ class Layout extends Component {
     super();
 
     this.state = {
-      displayMode: undefined,
+      displayMode: 'light',
     };
   }
 
   componentDidMount() {
-    const initialDisplayMode = window.localStorage.getItem('displayMode');
+    const initialDisplayMode =
+      window.localStorage.getItem('displayMode') || 'light';
 
     this.setState({
       displayMode: initialDisplayMode,

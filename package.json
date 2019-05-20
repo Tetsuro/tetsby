@@ -13,6 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "dotenv": "^8.0.0",
     "gatsby": "^2.5.0",
     "gatsby-image": "^2.0.41",

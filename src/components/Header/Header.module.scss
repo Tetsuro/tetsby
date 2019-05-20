@@ -20,10 +20,15 @@
 }
 
 .Logo {
-  display: block;
+  opacity: 0;
   width: rem(150);
   height: rem(150);
   margin: 0;
+  transition: opacity 300ms ease;
+}
+
+.LogoIsLoaded {
+  opacity: 1;
 }
 
 .HeaderHomeLink {
