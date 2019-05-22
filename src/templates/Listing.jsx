@@ -40,7 +40,7 @@ class Listing extends Component {
           date={item.date}
           featuredImageSrc={
             item.better_featured_image
-              ? item.better_featured_image.source_url
+              ? item.better_featured_image.media_details.sizes.medium.source_url
               : null
           }
           featuredImageAltText={
@@ -77,6 +77,13 @@ export const query = graphql`
           better_featured_image {
             alt_text
             source_url
+            media_details {
+              sizes {
+                medium {
+                  source_url
+                }
+              }
+            }
           }
         }
       }
