@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import ListingItem from '../components/ListingItem';
 
 import styles from './Listing.module.scss';
 
@@ -32,15 +33,22 @@ class Listing extends Component {
 
     const listItems = nodes.map(item => {
       return (
-        <li key={item.id}>
-          <Link to={`/${item.slug}`}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: item.title,
-              }}
-            />
-          </Link>
-        </li>
+        <ListingItem
+          key={item.id}
+          title={item.title}
+          slug={item.slug}
+          date={item.date}
+          featuredImageSrc={
+            item.better_featured_image
+              ? item.better_featured_image.source_url
+              : null
+          }
+          featuredImageAltText={
+            item.better_featured_image
+              ? item.better_featured_image.alt_text
+              : null
+          }
+        />
       );
     });
 
@@ -65,6 +73,11 @@ export const query = graphql`
           id
           title
           slug
+          date(formatString: "MMMM Do, YYYY")
+          better_featured_image {
+            alt_text
+            source_url
+          }
         }
       }
     }

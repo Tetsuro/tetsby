@@ -66,6 +66,7 @@ module.exports = {
           '**/tags',
           '**/comments',
           '**/menus',
+          '**/better_featured_image',
           // '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
