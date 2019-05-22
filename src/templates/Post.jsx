@@ -18,11 +18,20 @@ class Post extends Component {
       excerpt,
       wordpress_id,
       date,
+      better_featured_image,
     } = this.props.data.wordpressPost;
     // const { edges } = this.props.data.allWordpressWpComments;
     // const { newerPostSlug, olderPostSlug } = this.props.pageContext;
 
     // const comments = edges.map(({ node }) => node);
+
+    const featuredImageMarkup = better_featured_image ? (
+      <img
+        src={better_featured_image.source_url}
+        alt={better_featured_image.alt_text}
+        className={styles.FeaturedImage}
+      />
+    ) : null;
 
     return (
       <Layout>
@@ -34,6 +43,7 @@ class Post extends Component {
           className={styles.PostHeading}
         />
         <div className={styles.PostDate}>{date}</div>
+        {featuredImageMarkup}
         <div
           dangerouslySetInnerHTML={{
             __html: excerpt,
@@ -66,6 +76,10 @@ export const query = graphql`
       wordpress_id
       excerpt
       date(formatString: "MMMM Do, YYYY")
+      better_featured_image {
+        alt_text
+        source_url
+      }
     }
     allWordpressWpComments(filter: { post: { eq: $wordpressId } }) {
       edges {

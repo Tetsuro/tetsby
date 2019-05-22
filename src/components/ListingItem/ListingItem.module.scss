@@ -1,0 +1,49 @@
+.ListingItem {
+  display: flex;
+  font-size: rem(16);
+  align-items: center;
+
+  &:not(:last-child) {
+    padding-bottom: get-spacing('double');
+    margin-bottom: get-spacing('double');
+    border-radius: get-radius();
+  }
+
+  @include applyTheme($themes) {
+    color: themed('textColor');
+
+    &:not(:last-child) {
+      border-bottom: 1px solid themed('borderColor');
+    }
+  }
+}
+
+.ListingItemThumbnailWrapper {
+  margin-right: get-spacing('double');
+  flex-shrink: 0;
+}
+
+.ListingItemThumbnail {
+  width: 150px;
+  height: 150px;
+  display: block;
+}
+
+.ListingItemLink {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.ListingItemTitle {
+  margin-bottom: 0;
+  text-decoration: none;
+
+  @include applyTheme($themes) {
+    color: themed('linkColor');
+  }
+}
+
+.ListingItemInfo {
+  font-size: rem(14);
+}
