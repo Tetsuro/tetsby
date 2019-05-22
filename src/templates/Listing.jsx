@@ -34,7 +34,7 @@ class Listing extends Component {
     const listItems = nodes.map(item => {
       return (
         <ListingItem
-          key={item.id}
+          id={item.id}
           title={item.title}
           slug={item.slug}
           date={item.date}

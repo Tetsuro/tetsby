@@ -6,10 +6,6 @@ import SEO from '../components/seo';
 
 import styles from './Post.module.scss';
 
-// import CommentsList from '../components/CommentsList';
-// import CommentForm from '../components/CommentForm';
-// import PostFooterLinks from '../components/PostFooterLinks';
-
 class Post extends Component {
   render() {
     const {
@@ -19,11 +15,8 @@ class Post extends Component {
       wordpress_id,
       date,
       better_featured_image,
+      type,
     } = this.props.data.wordpressPost;
-    // const { edges } = this.props.data.allWordpressWpComments;
-    // const { newerPostSlug, olderPostSlug } = this.props.pageContext;
-
-    // const comments = edges.map(({ node }) => node);
 
     const featuredImageMarkup = better_featured_image ? (
       <img
@@ -55,12 +48,6 @@ class Post extends Component {
             __html: content,
           }}
         />
-        {/* <CommentsList comments={comments} />
-        <CommentForm postId={wordpress_id} />
-        <PostFooterLinks
-          newerPostSlug={newerPostSlug}
-          olderPostSlug={olderPostSlug}
-        /> */}
       </Layout>
     );
   }
@@ -76,6 +63,7 @@ export const query = graphql`
       wordpress_id
       excerpt
       date(formatString: "MMMM Do, YYYY")
+      type
       better_featured_image {
         alt_text
         source_url

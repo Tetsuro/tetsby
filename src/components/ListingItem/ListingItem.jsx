@@ -7,7 +7,7 @@ import defaultImage from '../../images/tetchi-profile.jpg';
 export default class ListingItem extends Component {
   render() {
     const {
-      key,
+      id,
       title,
       slug,
       featuredImageSrc,
@@ -16,7 +16,7 @@ export default class ListingItem extends Component {
     } = this.props;
 
     return (
-      <li className={styles.ListingItem}>
+      <li key={id} className={styles.ListingItem}>
         <Link to={`/${slug}`} className={styles.ListingItemThumbnailWrapper}>
           <img
             src={featuredImageSrc ? featuredImageSrc : defaultImage}
