@@ -24,9 +24,14 @@
 }
 
 .ListingItemThumbnail {
-  width: 150px;
-  height: 150px;
   display: block;
+  width: 100px;
+  height: 100px;
+
+  @include tablet-and-up {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .ListingItemLink {
@@ -38,6 +43,11 @@
 .ListingItemTitle {
   margin-bottom: 0;
   text-decoration: none;
+  font-size: rem(22);
+
+  @include tablet-and-up {
+    font-size: rem(27);
+  }
 
   @include applyTheme($themes) {
     color: themed('linkColor');
