@@ -26,7 +26,13 @@ export default class ListingItem extends Component {
         </Link>
         <div className={styles.ListingItemMeta}>
           <Link to={`/${slug}`} className={styles.ListingItemLink}>
-            <h2 className={styles.ListingItemTitle}>{title}</h2>
+            <h2 className={styles.ListingItemTitle}>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: title,
+                }}
+              />
+            </h2>
           </Link>
           <span className={styles.ListingItemInfo}>{date}</span>
         </div>
