@@ -4,14 +4,8 @@
   align-items: center;
 
   &:not(:last-child) {
-    padding-bottom: get-spacing();
-    margin-bottom: get-spacing();
-    border-radius: get-radius();
-
-    @include tablet-and-up {
-      padding-bottom: get-spacing('double');
-      margin-bottom: get-spacing('double');
-    }
+    padding-bottom: get-spacing('double');
+    margin-bottom: get-spacing('double');
   }
 
   @include applyTheme($themes) {
