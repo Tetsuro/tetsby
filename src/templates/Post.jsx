@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import CommentsList from '../components/CommentsList';
 
 import styles from './Post.module.scss';
 
@@ -18,12 +19,19 @@ class Post extends Component {
       type,
     } = this.props.data.wordpressPost;
 
+    const { edges } = this.props.data.allWordpressWpComments;
+    const comments = edges.map(({ node }) => node);
+
     const featuredImageMarkup = better_featured_image ? (
       <img
         src={better_featured_image.source_url}
         alt={better_featured_image.alt_text}
         className={styles.FeaturedImage}
       />
+    ) : null;
+
+    const commentsMarkup = comments.length ? (
+      <CommentsList comments={comments} />
     ) : null;
 
     return (
@@ -44,10 +52,12 @@ class Post extends Component {
         />
         <hr />
         <div
+          className={styles.PostContent}
           dangerouslySetInnerHTML={{
             __html: content,
           }}
         />
+        {commentsMarkup}
       </Layout>
     );
   }
@@ -69,12 +79,20 @@ export const query = graphql`
         source_url
       }
     }
-    allWordpressWpComments(filter: { post: { eq: $wordpressId } }) {
+    allWordpressWpComments(
+      filter: { post: { eq: $wordpressId } }
+      sort: { fields: [date] }
+    ) {
       edges {
         node {
+          id
           content
           author_name
+          author_url
           date(formatString: "MMMM Do, YYYY")
+          author_avatar_urls {
+            wordpress_96
+          }
         }
       }
     }

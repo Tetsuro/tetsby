@@ -23,11 +23,15 @@
 .MainMenuLink {
   @include applyTheme($themes) {
     color: themed('navLinkColor');
+
+    &:visited {
+      color: themed('navLinkColor');
+    }
   }
 }
 
 .MainMenuLinkIsActive {
   @include applyTheme($themes) {
-    color: themed('navActiveLinkColor');
+    color: themed('navActiveLinkColor') !important;
   }
 }

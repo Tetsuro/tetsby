@@ -61,11 +61,15 @@ a {
   &:hover,
   &:focus {
     text-decoration: underline;
-    color: get-color('blue-dark');
+    @include applyTheme($themes) {
+      color: themed('linkHoverColor');
+    }
   }
 
   &:visited {
-    color: get-color('purple');
+    @include applyTheme($themes) {
+      color: themed('linkVisitedColor');
+    }
   }
 }
 
@@ -124,6 +128,10 @@ hr {
   @include applyTheme($themes) {
     background-color: themed('borderColor');
   }
+}
+
+strong {
+  font-weight: bold;
 }
 
 figcaption {

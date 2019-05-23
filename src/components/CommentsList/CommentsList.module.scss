@@ -1,0 +1,46 @@
+.Comments {
+  @include tablet-and-up {
+    padding-top: get-spacing('quad');
+    margin-top: get-spacing('quad');
+  }
+
+  @include applyTheme($themes) {
+    border-top: 1px solid themed('borderColor');
+  }
+}
+
+.CommentsList {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.CommentsListItem {
+  line-height: 1;
+  display: flex;
+  margin-bottom: get-spacing();
+}
+
+.CommentThumbnail {
+  width: 90px;
+  height: 90px;
+}
+
+.CommentThumbnailWrapper {
+  display: none;
+  flex-shrink: 0;
+  margin-right: get-spacing();
+
+  @include tablet-and-up {
+    display: block;
+  }
+}
+
+.CommentDetails {
+  word-break: break-word;
+  margin-bottom: get-spacing();
+  display: inline-block;
+}
+
+.CommentDate {
+  font-size: rem(14);
+}
