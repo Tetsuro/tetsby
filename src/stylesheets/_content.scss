@@ -39,14 +39,16 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: rem(30);
+  line-height: rem(40);
   text-decoration: underline;
   margin-bottom: get-spacing('double');
   color: get-color('gray');
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-size: rem(26);
+  line-height: rem(40);
   margin-bottom: get-spacing('double');
   color: get-color('gray');
 }
@@ -99,11 +101,14 @@ ul {
   margin-bottom: get-spacing('double');
 }
 
-li {
-  &:not(last-child) {
-    margin-bottom: get-spacing('half');
-  }
+ol {
+  line-height: 2.2rem;
+  list-style-type: decimal;
+  margin-left: get-spacing('double');
+  margin-bottom: get-spacing('double');
+}
 
+li {
   > ul {
     margin-bottom: 0;
   }

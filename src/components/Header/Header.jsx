@@ -17,6 +17,10 @@ class Header extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({ logoLoaded: true });
+  }
+
   render() {
     const { title, description, displayMode } = this.props;
     const { logoLoaded } = this.state;
@@ -28,11 +32,7 @@ class Header extends Component {
       <header className={styles.Header}>
         <Link className={styles.HeaderHomeLink} to="/">
           <h1 className={styles.Heading}>{title}</h1>
-          <img
-            src={logoSrc}
-            className={classes}
-            onLoad={this.handleLogoLoad.bind(this)}
-          />
+          <img src={logoSrc} className={classes} />
         </Link>
         <div className={styles.HeaderNav}>
           <MainMenu />
@@ -40,10 +40,6 @@ class Header extends Component {
         </div>
       </header>
     );
-  }
-
-  handleLogoLoad() {
-    this.setState({ logoLoaded: true });
   }
 }
 
