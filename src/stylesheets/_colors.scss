@@ -8,6 +8,7 @@ $colors: (
   'gray-light': #ddd,
   'gray-dark': #1c1f2a,
   'purple': #609,
+  'purple-light': #c17ec5,
   'slate': #35373c,
 );
 
@@ -20,6 +21,8 @@ $themes: (
     backgroundColor: get-color('white'),
     textColor: get-color('gray'),
     linkColor: get-color('blue'),
+    linkHoverColor: get-color('blue-dark'),
+    linkVisitedColor: get-color('purple'),
     headingColor: get-color('black'),
     borderColor: get-color('gray-light'),
     navLinkColor: get-color('black'),
@@ -29,6 +32,8 @@ $themes: (
     backgroundColor: get-color('gray-dark'),
     textColor: get-color('white'),
     linkColor: get-color('blue-light'),
+    linkHoverColor: get-color('blue'),
+    linkVisitedColor: get-color('purple-light'),
     headingColor: get-color('white'),
     borderColor: get-color('slate'),
     navLinkColor: get-color('white'),
