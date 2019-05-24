@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import CommentsList from '../components/CommentsList';
+import PostFooterLinks from '../components/PostFooterLinks';
 
 import styles from './Post.module.scss';
 
@@ -19,6 +20,8 @@ class Post extends Component {
       type,
     } = this.props.data.wordpressPost;
 
+    const { newerPostSlug, olderPostSlug } = this.props.pageContext;
+    console.log(newerPostSlug, olderPostSlug);
     const { edges } = this.props.data.allWordpressWpComments;
     const comments = edges.map(({ node }) => node);
 
@@ -58,6 +61,10 @@ class Post extends Component {
           }}
         />
         {commentsMarkup}
+        <PostFooterLinks
+          newerPostSlug={newerPostSlug}
+          olderPostSlug={olderPostSlug}
+        />
       </Layout>
     );
   }

@@ -19,7 +19,7 @@
 .PostContent {
   margin-bottom: get-spacing('double');
 
-  @include tablet-and-up {
-    margin-bottom: get-spacing('quad');
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
   }
 }
