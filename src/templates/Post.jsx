@@ -21,7 +21,6 @@ class Post extends Component {
     } = this.props.data.wordpressPost;
 
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
-    console.log(newerPostSlug, olderPostSlug);
     const { edges } = this.props.data.allWordpressWpComments;
     const comments = edges.map(({ node }) => node);
 
@@ -37,6 +36,16 @@ class Post extends Component {
       <CommentsList comments={comments} />
     ) : null;
 
+    // Need this check because apparently it's impossible for Wordpress
+    // NOT to auto-generate an excerpt if none exists...
+    const excerptMarkup = excerpt.includes('<p>&hellip;</p>') ? null : (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: excerpt,
+        }}
+      />
+    );
+
     return (
       <Layout>
         <SEO title={title} description={excerpt} />
@@ -48,11 +57,7 @@ class Post extends Component {
         />
         <div className={styles.PostDate}>{date}</div>
         {featuredImageMarkup}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: excerpt,
-          }}
-        />
+        {excerptMarkup}
         <hr />
         <div
           className={styles.PostContent}
