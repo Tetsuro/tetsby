@@ -1,8 +1,5 @@
 .Comments {
-  @include tablet-and-up {
-    padding-bottom: get-spacing();
-    margin-bottom: get-spacing('double');
-  }
+  margin-bottom: get-spacing('double');
 
   @include applyTheme($themes) {
     border-bottom: 1px solid themed('borderColor');

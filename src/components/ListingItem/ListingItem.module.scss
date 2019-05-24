@@ -37,6 +37,10 @@
   }
 }
 
+.ListingItemMeta {
+  line-height: 1;
+}
+
 .ListingItemLink {
   display: block;
   width: 100%;
@@ -44,9 +48,10 @@
 }
 
 .ListingItemTitle {
-  margin-bottom: 0;
+  margin-bottom: get-spacing('quarter');
   text-decoration: none;
   font-size: rem(22);
+  line-height: rem(30);
 
   @include tablet-and-up {
     font-size: rem(27);
