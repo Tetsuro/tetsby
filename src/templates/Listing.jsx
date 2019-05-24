@@ -20,14 +20,14 @@ class Listing extends Component {
       currentPage - 1 === 1 ? '/' : `/page/${currentPage - 1}`;
     const newerPostsLinkMarkup = isFirst ? null : (
       <Link to={newerPostsLinkUrl} rel="prev" className={styles.NextPostsLink}>
-        Newer posts →
+        Newer posts »
       </Link>
     );
 
     const olderPostsLinkUrl = `/page/${currentPage + 1}`;
     const olderPostsLinkMarkup = isLast ? null : (
       <Link to={olderPostsLinkUrl} rel="next">
-        ← Older posts
+        « Older posts
       </Link>
     );
 

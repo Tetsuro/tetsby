@@ -1,0 +1,13 @@
+.PostFooterLinks {
+  padding-bottom: get-spacing('double');
+  display: flex;
+  justify-content: space-between;
+
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
+  }
+}
+
+.NextPost {
+  margin-left: auto;
+}

@@ -1,11 +1,11 @@
 .Comments {
   @include tablet-and-up {
-    padding-top: get-spacing('quad');
-    margin-top: get-spacing('quad');
+    padding-bottom: get-spacing();
+    margin-bottom: get-spacing('double');
   }
 
   @include applyTheme($themes) {
-    border-top: 1px solid themed('borderColor');
+    border-bottom: 1px solid themed('borderColor');
   }
 }
 
