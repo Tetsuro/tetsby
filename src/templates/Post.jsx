@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import CommentsList from '../components/CommentsList';
+import CommentForm from '../components/CommentForm';
 import PostFooterLinks from '../components/PostFooterLinks';
 
 import styles from './Post.module.scss';
@@ -66,6 +67,7 @@ class Post extends Component {
           }}
         />
         {commentsMarkup}
+        <CommentForm postId={wordpress_id} />
         <PostFooterLinks
           newerPostSlug={newerPostSlug}
           olderPostSlug={olderPostSlug}

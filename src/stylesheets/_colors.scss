@@ -3,6 +3,7 @@ $colors: (
   'black': #000,
   'blue': #3399cc,
   'blue-dark': #0a699a,
+  'blue-mid': #167ac6cc,
   'blue-light': #60caff,
   'gray': #535353,
   'gray-light': #ddd,
@@ -10,6 +11,9 @@ $colors: (
   'purple': #609,
   'purple-light': #c17ec5,
   'slate': #35373c,
+  'green': #108711,
+  'green-light': #d4ffd4,
+  'dark-purple': #18191e,
 );
 
 @function get-color($color) {
@@ -27,6 +31,12 @@ $themes: (
     borderColor: get-color('gray-light'),
     navLinkColor: get-color('black'),
     navActiveLinkColor: get-color('blue'),
+    buttonTextColor: get-color('white'),
+    buttonColor: get-color('black'),
+    buttonHoverColor: get-color('gray'),
+    inputDisabledBackgroundColor: get-color('gray-light'),
+    commentSuccess: get-color('green'),
+    commentSuccessBorderColor: get-color('green-light'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -38,6 +48,12 @@ $themes: (
     borderColor: get-color('slate'),
     navLinkColor: get-color('white'),
     navActiveLinkColor: get-color('blue-light'),
+    buttonTextColor: get-color('white'),
+    buttonColor: get-color('blue-mid'),
+    buttonHoverColor: get-color('blue'),
+    inputDisabledBackgroundColor: get-color('dark-purple'),
+    commentSuccess: get-color('green'),
+    commentSuccessBorderColor: get-color('green-light'),
   ),
 );
 

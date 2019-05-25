@@ -1,0 +1,77 @@
+.CommentForm {
+  padding-bottom: get-spacing('double');
+  margin-bottom: get-spacing('double');
+
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
+  }
+}
+
+.FormInputWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: get-spacing();
+
+  label {
+    font-size: rem(14);
+    margin-bottom: get-spacing('half');
+  }
+
+  textarea {
+    line-height: rem(28);
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='email'] {
+    padding: get-spacing('half');
+    font-size: rem(18);
+
+    @include applyTheme($themes) {
+      border: 1px solid themed('borderColor');
+      background-color: themed('backgroundColor');
+      color: themed('textColor');
+    }
+  }
+
+  textarea:disabled,
+  input:disabled {
+    @include applyTheme($themes) {
+      background-color: themed('inputDisabledBackgroundColor') !important;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.SubmitButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+
+  input[type='submit'] {
+    border: none;
+    padding: get-spacing();
+    font-size: rem(18);
+    border-radius: get-radius();
+    cursor: pointer;
+
+    @include applyTheme($themes) {
+      background-color: themed('buttonColor');
+      color: themed('buttonTextColor');
+
+      &:focus,
+      &:hover {
+        background-color: themed('buttonHoverColor');
+      }
+    }
+  }
+}
+
+.CommentPostedMessage {
+  padding: get-spacing();
+
+  @include applyTheme($themes) {
+    color: themed('commentSuccess');
+    background-color: themed('commentSuccessBorderColor');
+    border: 1px solid themed('commentSuccess');
+  }
+}
