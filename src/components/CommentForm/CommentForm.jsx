@@ -11,14 +11,19 @@ class CommentForm extends Component {
     super();
 
     this.state = {
-      formIsSubmitting: true,
+      formIsSubmitting: false,
       formSubmittedSuccessfully: false,
+      textAreaValue: '',
     };
   }
 
   render() {
     const { postId } = this.props;
-    const { formIsSubmitting, formSubmittedSuccessfully } = this.state;
+    const {
+      formIsSubmitting,
+      formSubmittedSuccessfully,
+      textAreaValue,
+    } = this.state;
     const commentFormClasses = classNames(
       styles.CommentForm,
       formIsSubmitting && styles.CommentFormIsSubmitting
@@ -66,6 +71,10 @@ class CommentForm extends Component {
               rows="10"
               required
               disabled={formIsSubmitting}
+              onChange={evt => {
+                this.setState({ textAreaValue: evt.target.value });
+              }}
+              value={textAreaValue}
             />
           </div>
           <div className={styles.SubmitButtonWrapper}>{submitButtonMarkup}</div>
@@ -101,6 +110,7 @@ class CommentForm extends Component {
         this.setState({
           formIsSubmitting: false,
           formSubmittedSuccessfully: true,
+          textAreaValue: '',
         });
       })
       .catch(error => console.error('Error:', error));
