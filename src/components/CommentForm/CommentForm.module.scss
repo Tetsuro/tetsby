@@ -7,10 +7,6 @@
   }
 }
 
-.CommentFormIsSubmitting {
-  // background: red;
-}
-
 .FormInputWrapper {
   display: flex;
   flex-direction: column;
@@ -42,6 +38,7 @@
   input:disabled {
     @include applyTheme($themes) {
       background-color: themed('inputDisabledBackgroundColor') !important;
+      cursor: not-allowed;
     }
   }
 }
