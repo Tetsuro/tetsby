@@ -6,6 +6,7 @@ import parse from 'html-react-parser';
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
 import appleIcon from '../images/apple-touch-icon.png';
+import defaultImage from '../images/tetchi-profile.jpg';
 
 function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(
@@ -22,9 +23,11 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     `
   );
 
+  console.log(title);
   const metaDescription = description || site.siteMetadata.description;
-  const parsedTitle = parse(title);
-  const titleTemplate = parsedTitle ? `${site.siteMetadata.title} » %s` : null;
+  const parsedTitle = title ? parse(title) : site.siteMetadata.title;
+  console.log(parsedTitle);
+  const titleTemplate = title ? `${site.siteMetadata.title} » %s` : null;
 
   return (
     <Helmet
@@ -60,7 +63,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: 'og:site_name',
-          content: 'tetchi blog',
+          content: title,
         },
         {
           property: 'og:type',
@@ -80,7 +83,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: 'og:image',
-          content: image,
+          content: image ? image : defaultImage,
         },
         {
           name: 'twitter:card',

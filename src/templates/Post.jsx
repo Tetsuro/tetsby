@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import parse from 'html-react-parser';
+import stripHtml from 'string-strip-html';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -43,14 +44,11 @@ class Post extends Component {
       <div>{parse(excerpt)}</div>
     );
 
-    console.log(excerpt);
-    console.log(parse(excerpt));
-
     return (
       <Layout>
         <SEO
           title={parse(title)}
-          description={excerpt}
+          description={stripHtml(excerpt)}
           image={better_featured_image.source_url}
         />
         <h1 className={styles.PostHeading}>{parse(title)}</h1>
