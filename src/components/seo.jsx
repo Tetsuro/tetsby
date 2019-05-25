@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import parse from 'html-react-parser';
 
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
@@ -22,14 +23,15 @@ function SEO({ description, lang, meta, keywords, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const titleTemplate = title ? `${site.siteMetadata.title} » %s` : null;
+  const parsedTitle = parse(title);
+  const titleTemplate = parsedTitle ? `${site.siteMetadata.title} » %s` : null;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title || site.siteMetadata.title}
+      title={parsedTitle || site.siteMetadata.title}
       titleTemplate={titleTemplate}
       link={[
         {
