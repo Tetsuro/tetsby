@@ -7,6 +7,10 @@
   }
 }
 
+.CommentFormIsSubmitting {
+  // background: red;
+}
+
 .FormInputWrapper {
   display: flex;
   flex-direction: column;
@@ -33,6 +37,13 @@
       color: themed('textColor');
     }
   }
+
+  textarea:disabled,
+  input:disabled {
+    @include applyTheme($themes) {
+      background-color: themed('inputDisabledBackgroundColor') !important;
+    }
+  }
 }
 
 .SubmitButtonWrapper {
@@ -55,5 +66,15 @@
         background-color: themed('buttonHoverColor');
       }
     }
+  }
+}
+
+.CommentPostedMessage {
+  padding: get-spacing();
+
+  @include applyTheme($themes) {
+    color: themed('commentSuccess');
+    background-color: themed('commentSuccessBorderColor');
+    border: 1px solid themed('commentSuccess');
   }
 }

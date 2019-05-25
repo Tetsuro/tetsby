@@ -11,6 +11,8 @@ $colors: (
   'purple': #609,
   'purple-light': #c17ec5,
   'slate': #35373c,
+  'green': #108711,
+  'green-light': #d4ffd4,
 );
 
 @function get-color($color) {
@@ -31,6 +33,9 @@ $themes: (
     buttonTextColor: get-color('white'),
     buttonColor: get-color('black'),
     buttonHoverColor: get-color('gray'),
+    inputDisabledBackgroundColor: get-color('gray-light'),
+    commentSuccess: get-color('green'),
+    commentSuccessBorderColor: get-color('green-light'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -45,6 +50,9 @@ $themes: (
     buttonTextColor: get-color('white'),
     buttonColor: get-color('blue-mid'),
     buttonHoverColor: get-color('blue'),
+    inputDisabledBackgroundColor: get-color('gray'),
+    commentSuccess: get-color('green'),
+    commentSuccessBorderColor: get-color('green-light'),
   ),
 );
 
