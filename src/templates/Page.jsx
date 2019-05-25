@@ -4,6 +4,8 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
+import styles from './Page.module.scss';
+
 class Page extends Component {
   render() {
     const { title, content } = this.props.data.wordpressPage;
@@ -17,6 +19,7 @@ class Page extends Component {
           }}
         />
         <div
+          className={styles.Page}
           dangerouslySetInnerHTML={{
             __html: content,
           }}

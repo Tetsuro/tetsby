@@ -55,6 +55,7 @@
 
   @include tablet-and-up {
     font-size: rem(27);
+    line-height: rem(40);
   }
 
   @include applyTheme($themes) {
