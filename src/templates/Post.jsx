@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import parse from 'html-react-parser';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -18,7 +19,6 @@ class Post extends Component {
       wordpress_id,
       date,
       better_featured_image,
-      type,
     } = this.props.data.wordpressPost;
 
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
@@ -40,32 +40,25 @@ class Post extends Component {
     // Need this check because apparently it's impossible for Wordpress
     // NOT to auto-generate an excerpt if none exists...
     const excerptMarkup = excerpt.includes('<p>&hellip;</p>') ? null : (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: excerpt,
-        }}
-      />
+      <div>{parse(excerpt)}</div>
     );
+
+    console.log(excerpt);
+    console.log(parse(excerpt));
 
     return (
       <Layout>
-        <SEO title={title} description={excerpt} />
-        <h1
-          dangerouslySetInnerHTML={{
-            __html: title,
-          }}
-          className={styles.PostHeading}
+        <SEO
+          title={parse(title)}
+          description={excerpt}
+          image={better_featured_image.source_url}
         />
+        <h1 className={styles.PostHeading}>{parse(title)}</h1>
         <div className={styles.PostDate}>{date}</div>
         {featuredImageMarkup}
         {excerptMarkup}
         <hr />
-        <div
-          className={styles.PostContent}
-          dangerouslySetInnerHTML={{
-            __html: content,
-          }}
-        />
+        <div className={styles.PostContent}>{parse(content)}</div>
         {commentsMarkup}
         <CommentForm postId={wordpress_id} />
         <PostFooterLinks

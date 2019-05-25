@@ -7,7 +7,7 @@ import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
 import appleIcon from '../images/apple-touch-icon.png';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -59,6 +59,14 @@ function SEO({ description, lang, meta, keywords, title }) {
           content: metaDescription,
         },
         {
+          property: 'og:site_name',
+          content: 'tetchi blog',
+        },
+        {
+          property: 'og:type',
+          content: 'blog',
+        },
+        {
           property: 'og:title',
           content: title,
         },
@@ -69,6 +77,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: 'og:type',
           content: 'website',
+        },
+        {
+          property: 'og:image',
+          content: image,
         },
         {
           name: 'twitter:card',
