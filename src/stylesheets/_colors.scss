@@ -3,6 +3,7 @@ $colors: (
   'black': #000,
   'blue': #3399cc,
   'blue-dark': #0a699a,
+  'blue-mid': #167ac6cc,
   'blue-light': #60caff,
   'gray': #535353,
   'gray-light': #ddd,
@@ -27,6 +28,9 @@ $themes: (
     borderColor: get-color('gray-light'),
     navLinkColor: get-color('black'),
     navActiveLinkColor: get-color('blue'),
+    buttonTextColor: get-color('white'),
+    buttonColor: get-color('black'),
+    buttonHoverColor: get-color('gray'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -38,6 +42,9 @@ $themes: (
     borderColor: get-color('slate'),
     navLinkColor: get-color('white'),
     navActiveLinkColor: get-color('blue-light'),
+    buttonTextColor: get-color('white'),
+    buttonColor: get-color('blue-mid'),
+    buttonHoverColor: get-color('blue'),
   ),
 );
 
