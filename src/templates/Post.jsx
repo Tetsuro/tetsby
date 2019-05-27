@@ -10,6 +10,7 @@ import CommentForm from '../components/CommentForm';
 import PostFooterLinks from '../components/PostFooterLinks';
 
 import styles from './Post.module.scss';
+import defaultImage from '../images/tetchi-profile.jpg';
 
 class Post extends Component {
   render() {
@@ -54,7 +55,15 @@ class Post extends Component {
 
     return (
       <Layout>
-        <SEO title={parse(title)} description={stripHtml(excerpt)} />
+        <SEO
+          title={parse(title)}
+          description={stripHtml(excerpt)}
+          image={
+            better_featured_image
+              ? better_featured_image.source_url
+              : defaultImage
+          }
+        />
         <h1
           dangerouslySetInnerHTML={{
             __html: title,
