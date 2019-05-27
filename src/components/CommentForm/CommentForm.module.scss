@@ -24,6 +24,7 @@
   textarea,
   input[type='text'],
   input[type='email'] {
+    -webkit-appearance: none;
     padding: get-spacing('half');
     font-size: rem(18);
 
@@ -48,6 +49,7 @@
   justify-content: flex-end;
 
   input[type='submit'] {
+    -webkit-appearance: none;
     border: none;
     padding: get-spacing();
     font-size: rem(18);
