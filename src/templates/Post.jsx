@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
+import stripHtml from 'string-strip-html';
+import parse from 'html-react-parser';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -47,9 +49,12 @@ class Post extends Component {
       />
     );
 
+    console.log(title);
+    console.log(parse(title));
+
     return (
       <Layout>
-        <SEO title={title} description={excerpt} />
+        <SEO title={parse(title)} description={stripHtml(excerpt)} />
         <h1
           dangerouslySetInnerHTML={{
             __html: title,
