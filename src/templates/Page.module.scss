@@ -1,0 +1,7 @@
+.Page {
+  padding-bottom: get-spacing('double');
+
+  @include applyTheme($themes) {
+    border-bottom: 1px solid themed('borderColor');
+  }
+}
