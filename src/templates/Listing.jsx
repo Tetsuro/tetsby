@@ -6,6 +6,7 @@ import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
 
 import styles from './Listing.module.scss';
+import defaultImage from '../images/tetchi-profile.jpg';
 
 class Listing extends Component {
   render() {
@@ -54,7 +55,7 @@ class Listing extends Component {
 
     return (
       <Layout>
-        <SEO />
+        <SEO image={defaultImage} />
         <ul className={styles.Listing}>{listItems}</ul>
         <div className={styles.ListingPagination}>
           {olderPostsLinkMarkup}

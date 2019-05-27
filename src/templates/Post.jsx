@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
+import stripHtml from 'string-strip-html';
+import parse from 'html-react-parser';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -8,6 +10,7 @@ import CommentForm from '../components/CommentForm';
 import PostFooterLinks from '../components/PostFooterLinks';
 
 import styles from './Post.module.scss';
+import defaultImage from '../images/tetchi-profile.jpg';
 
 class Post extends Component {
   render() {
@@ -47,9 +50,20 @@ class Post extends Component {
       />
     );
 
+    console.log(title);
+    console.log(parse(title));
+
     return (
       <Layout>
-        <SEO title={title} description={excerpt} />
+        <SEO
+          title={parse(title)}
+          description={stripHtml(excerpt)}
+          image={
+            better_featured_image
+              ? better_featured_image.source_url
+              : defaultImage
+          }
+        />
         <h1
           dangerouslySetInnerHTML={{
             __html: title,
