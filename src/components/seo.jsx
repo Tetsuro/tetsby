@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
 import appleIcon from '../images/apple-touch-icon.png';
-import { parse } from 'querystring';
 
 function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(
