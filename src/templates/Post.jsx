@@ -50,9 +50,6 @@ class Post extends Component {
       />
     );
 
-    console.log(title);
-    console.log(parse(title));
-
     return (
       <Layout>
         <SEO

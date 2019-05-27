@@ -21,6 +21,9 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     `
   );
 
+  const DEFAULT_IMAGE_URL = `${process.env.GATSBY_WP_PROTOCOL}://${
+    process.env.GATSBY_WP_BASE_URL
+  }/wp-content/uploads/2009/07/IMG_4095-e1457208256153.jpg`;
   const metaDescription = description || site.siteMetadata.description;
   const titleTemplate = title ? `${site.siteMetadata.title} » %s` : null;
 
@@ -62,7 +65,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: 'og:image',
-          content: image,
+          content: image ? image : DEFAULT_IMAGE_URL,
         },
         {
           property: 'og:description',

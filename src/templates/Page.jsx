@@ -5,7 +5,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
 import styles from './Page.module.scss';
-import defaultImage from '../images/tetchi-profile.jpg';
 
 class Page extends Component {
   render() {
@@ -13,7 +12,7 @@ class Page extends Component {
 
     return (
       <Layout>
-        <SEO title={title} image={defaultImage} />
+        <SEO title={title} />
         <h1
           dangerouslySetInnerHTML={{
             __html: title,
