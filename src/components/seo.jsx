@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
 import appleIcon from '../images/apple-touch-icon.png';
+import { parse } from 'querystring';
 
 function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(
@@ -22,20 +23,14 @@ function SEO({ description, lang, meta, keywords, title, image }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const parser = new DOMParser();
-  const dom = parser.parseFromString(
-    '<!doctype html><body>' + title,
-    'text/html'
-  );
-  const decodedString = dom.body.textContent;
-  const titleTemplate = decodedString ? `${site.siteMetadata.title} » %s` : null;
+  const titleTemplate = title ? `${site.siteMetadata.title} » %s` : null;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={decodedString || site.siteMetadata.title}
+      title={title ? title : site.siteMetadata.title}
       titleTemplate={titleTemplate}
       link={[
         {
@@ -64,7 +59,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: 'og:title',
-          content: title,
+          content: title ? title : site.siteMetadata.title,
         },
         {
           property: 'og:image',
@@ -88,7 +83,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           name: 'twitter:title',
-          content: title,
+          content: title ? title : site.siteMetadata.title,
         },
         {
           name: 'twitter:description',
