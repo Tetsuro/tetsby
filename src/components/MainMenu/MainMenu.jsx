@@ -9,7 +9,7 @@ class MainMenu extends Component {
 
     const linksMarkup = links.map((link, index) => (
       <Link
-        to={index === 0 ? '/' : `${link.url}/`}
+        to={index === 0 ? '/' : `${link.url}`}
         key={link.wordpress_id}
         className={styles.MainMenuLink}
         activeClassName={styles.MainMenuLinkIsActive}
