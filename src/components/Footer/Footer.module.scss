@@ -10,4 +10,13 @@
 .SocialLinks {
   font-size: rem(14);
   margin-bottom: get-spacing('double');
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 }
