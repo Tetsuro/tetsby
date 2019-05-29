@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
+import { globalHistory } from '@reach/router';
 
 import styles from './MainMenu.module.scss';
 
@@ -20,19 +21,23 @@ export default function MainMenu() {
     `
   );
 
-  console.log(links);
+  //TODO: Override active class when looking at blog post.
 
-  const linksMarkup = links.map((link, index) => (
-    <Link
-      to={index === 0 ? '/' : `${link.url}/`}
-      key={link.wordpress_id}
-      className={styles.MainMenuLink}
-      activeClassName={styles.MainMenuLinkIsActive}
-      // partiallyActive={index === 0}
-    >
-      {link.title}
-    </Link>
-  ));
+  const currentPath = globalHistory.location.pathname;
+
+  const linksMarkup = links.map((link, index) => {
+    return (
+      <Link
+        to={index === 0 ? '/' : `${link.url}/`}
+        key={link.wordpress_id}
+        className={styles.MainMenuLink}
+        activeClassName={styles.MainMenuLinkIsActive}
+        partiallyActive={index === 0 && !currentPath.includes(link.url)}
+      >
+        {link.title}
+      </Link>
+    );
+  });
 
   return <nav className={styles.MainMenu}>{linksMarkup}</nav>;
 }
