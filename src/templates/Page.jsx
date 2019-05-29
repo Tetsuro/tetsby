@@ -11,7 +11,7 @@ class Page extends Component {
     const { title, content } = this.props.data.wordpressPage;
 
     return (
-      <Layout>
+      <>
         <SEO title={title} />
         <h1
           dangerouslySetInnerHTML={{
@@ -24,7 +24,7 @@ class Page extends Component {
             __html: content,
           }}
         />
-      </Layout>
+      </>
     );
   }
 }

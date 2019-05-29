@@ -23,6 +23,12 @@ module.exports = {
         includePaths: ['src/stylesheets'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/components/Layout'),
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-image',
     {
