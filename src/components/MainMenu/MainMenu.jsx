@@ -1,32 +1,15 @@
-import React, { Component } from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import React from 'react';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import { globalHistory } from '@reach/router';
 
 import styles from './MainMenu.module.scss';
 
-class MainMenu extends Component {
-  render() {
-    const { links } = this.props;
-
-    const linksMarkup = links.map((link, index) => (
-      <Link
-        to={index === 0 ? '/' : `${link.url}`}
-        key={link.wordpress_id}
-        className={styles.MainMenuLink}
-        activeClassName={styles.MainMenuLinkIsActive}
-        // partiallyActive={index === 0}
-      >
-        {link.title}
-      </Link>
-    ));
-
-    return <nav className={styles.MainMenu}>{linksMarkup}</nav>;
-  }
-}
-
-export default () => (
-  <StaticQuery
-    query={graphql`
-      {
+export default function MainMenu() {
+  const {
+    wordpressWpApiMenusMenusItems: { items: links },
+  } = useStaticQuery(
+    graphql`
+      query {
         wordpressWpApiMenusMenusItems {
           items {
             title
@@ -35,9 +18,26 @@ export default () => (
           }
         }
       }
-    `}
-    render={data => (
-      <MainMenu links={data.wordpressWpApiMenusMenusItems.items} />
-    )}
-  />
-);
+    `
+  );
+
+  //TODO: Override active class when looking at blog post.
+
+  const currentPath = globalHistory.location.pathname;
+
+  const linksMarkup = links.map((link, index) => {
+    return (
+      <Link
+        to={index === 0 ? '/' : `${link.url}`}
+        key={link.wordpress_id}
+        className={styles.MainMenuLink}
+        activeClassName={styles.MainMenuLinkIsActive}
+        partiallyActive={index === 0 && !currentPath.includes(link.url)}
+      >
+        {link.title}
+      </Link>
+    );
+  });
+
+  return <nav className={styles.MainMenu}>{linksMarkup}</nav>;
+}
