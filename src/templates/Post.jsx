@@ -20,7 +20,7 @@ class Post extends Component {
       wordpress_id,
       date,
       better_featured_image,
-      type,
+      slug,
     } = this.props.data.wordpressPost;
 
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
@@ -75,7 +75,7 @@ class Post extends Component {
           }}
         />
         {commentsMarkup}
-        <CommentForm postId={wordpress_id} />
+        <CommentForm postId={wordpress_id} slug={slug} />
         <PostFooterLinks
           newerPostSlug={newerPostSlug}
           olderPostSlug={olderPostSlug}
@@ -95,7 +95,7 @@ export const query = graphql`
       wordpress_id
       excerpt
       date(formatString: "MMMM Do, YYYY")
-      type
+      slug
       better_featured_image {
         alt_text
         source_url

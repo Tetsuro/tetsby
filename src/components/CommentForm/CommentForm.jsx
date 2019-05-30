@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from 'gatsby';
 import classNames from 'classnames';
 import styles from './CommentForm.module.scss';
 
@@ -43,7 +44,7 @@ class CommentForm extends Component {
 
     return (
       <div className={commentFormClasses}>
-        <h2>Post a comment</h2>
+        <h2 id="CommentsHeading">Post a comment</h2>
         {successMessageMarkup}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="hidden" id="postId" value={postId} />
@@ -86,9 +87,9 @@ class CommentForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    this.setState({
-      formIsSubmitting: true,
-    });
+    const { slug } = this.props;
+
+    navigate(`/${slug}#CommentsHeading`);
 
     const [postId, name, email, website, comment] = evt.target.elements;
     const sendData = JSON.stringify({
