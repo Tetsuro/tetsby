@@ -4,7 +4,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
-import appleIcon from '../images/apple-touch-icon.png';
+import appleIcon180 from '../images/apple-touch-icon-180.png';
+import appleIcon167 from '../images/apple-touch-icon-167.png';
+import appleIcon152 from '../images/apple-touch-icon-152.png';
+import appleIcon120 from '../images/apple-touch-icon-120.png';
 
 function SEO({ description, lang, meta, keywords, title, image }) {
   const { site } = useStaticQuery(
@@ -50,8 +53,26 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         {
           rel: 'icon',
           type: 'apple-touch-icon',
+          sizes: '120x120',
+          href: `${appleIcon120}`,
+        },
+        {
+          rel: 'icon',
+          type: 'apple-touch-icon',
+          sizes: '152x152',
+          href: `${appleIcon152}`,
+        },
+        {
+          rel: 'icon',
+          type: 'apple-touch-icon',
+          sizes: '167x167',
+          href: `${appleIcon167}`,
+        },
+        {
+          rel: 'icon',
+          type: 'apple-touch-icon',
           sizes: '180x180',
-          href: `${appleIcon}`,
+          href: `${appleIcon180}`,
         },
       ]}
       meta={[
