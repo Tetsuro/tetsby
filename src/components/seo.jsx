@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
+import appleIcon from '../images/apple-touch-icon.png';
 import appleIcon180 from '../images/apple-touch-icon-180.png';
 import appleIcon167 from '../images/apple-touch-icon-167.png';
 import appleIcon152 from '../images/apple-touch-icon-152.png';
@@ -73,6 +74,12 @@ function SEO({ description, lang, meta, keywords, title, image }) {
           type: 'apple-touch-icon',
           sizes: '180x180',
           href: `${appleIcon180}`,
+        },
+        {
+          rel: 'icon',
+          type: 'apple-touch-icon',
+          sizes: '150x150',
+          href: `${appleIcon}`,
         },
       ]}
       meta={[
