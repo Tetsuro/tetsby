@@ -31,14 +31,14 @@ export default function MainMenu() {
     const classes = classNames(
       styles.MainMenuLink,
       index === 0 &&
-        currentPath !== '/about-me' &&
-        currentPath !== '/works' &&
+        currentPath !== '/about-me/' &&
+        currentPath !== '/works/' &&
         styles.MainMenuLinkIsActive
     );
 
     return (
       <Link
-        to={index === 0 ? '/' : `${link.url}`}
+        to={index === 0 ? '/' : `${link.url}/`}
         key={link.wordpress_id}
         className={classes}
         activeClassName={styles.MainMenuLinkIsActive}
