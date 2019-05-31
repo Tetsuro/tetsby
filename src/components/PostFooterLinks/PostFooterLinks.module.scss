@@ -3,6 +3,15 @@
   display: flex;
   justify-content: space-between;
 
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
   @include applyTheme($themes) {
     border-bottom: 1px solid themed('borderColor');
   }
