@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import classNames from 'classnames';
 
 import styles from './MainMenu.module.scss';
 
