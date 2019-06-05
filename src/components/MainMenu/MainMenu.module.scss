@@ -15,18 +15,16 @@
 .MainMenuLink {
   text-decoration: none;
 
-  &:not(:first-child) {
-    margin-left: get-spacing('double');
-  }
-}
-
-.MainMenuLink {
   @include applyTheme($themes) {
     color: themed('navLinkColor');
 
     &:visited {
       color: themed('navLinkColor');
     }
+  }
+
+  &:not(:first-child) {
+    margin-left: get-spacing('double');
   }
 }
 
