@@ -130,6 +130,15 @@ hr {
   }
 }
 
+blockquote {
+  margin: 0 auto get-spacing('double');
+  padding-left: get-spacing('double');
+
+  @include applyTheme($themes) {
+    border-left: 10px solid themed('blockquoteColor');
+  }
+}
+
 strong {
   font-weight: bold;
 }

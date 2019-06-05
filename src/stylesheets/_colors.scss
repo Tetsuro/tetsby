@@ -37,6 +37,7 @@ $themes: (
     inputDisabledBackgroundColor: get-color('gray-light'),
     commentSuccess: get-color('green'),
     commentSuccessBorderColor: get-color('green-light'),
+    blockquoteColor: get-color('gray-light'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -54,6 +55,7 @@ $themes: (
     inputDisabledBackgroundColor: get-color('dark-purple'),
     commentSuccess: get-color('green'),
     commentSuccessBorderColor: get-color('green-light'),
+    blockquoteColor: get-color('white'),
   ),
 );
 
