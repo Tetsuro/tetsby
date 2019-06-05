@@ -67,3 +67,12 @@
     height: 100%;
   }
 }
+
+blockquote {
+  font-style: italic;
+
+  cite {
+    font-style: italic;
+    line-height: 2.2rem;
+  }
+}
