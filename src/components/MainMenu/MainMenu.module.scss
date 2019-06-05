@@ -15,12 +15,6 @@
 .MainMenuLink {
   text-decoration: none;
 
-  &[aria-current='page'] {
-    @include applyTheme($themes) {
-      color: themed('navActiveLinkColor') !important;
-    }
-  }
-
   @include applyTheme($themes) {
     color: themed('navLinkColor');
 
@@ -37,13 +31,5 @@
 .MainMenuLinkIsActive {
   @include applyTheme($themes) {
     color: themed('navActiveLinkColor') !important;
-  }
-}
-
-.MainMenuWithPostPage {
-  .MainMenuLink:first-child {
-    @include applyTheme($themes) {
-      color: themed('navActiveLinkColor') !important;
-    }
   }
 }
