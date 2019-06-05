@@ -15,12 +15,12 @@
 .MainMenuLink {
   text-decoration: none;
 
-  &:not(:first-child) {
-    margin-left: get-spacing('double');
+  &[aria-current='page'] {
+    @include applyTheme($themes) {
+      color: themed('navActiveLinkColor') !important;
+    }
   }
-}
 
-.MainMenuLink {
   @include applyTheme($themes) {
     color: themed('navLinkColor');
 
@@ -28,10 +28,22 @@
       color: themed('navLinkColor');
     }
   }
+
+  &:not(:first-child) {
+    margin-left: get-spacing('double');
+  }
 }
 
 .MainMenuLinkIsActive {
   @include applyTheme($themes) {
     color: themed('navActiveLinkColor') !important;
+  }
+}
+
+.MainMenuWithPostPage {
+  .MainMenuLink:first-child {
+    @include applyTheme($themes) {
+      color: themed('navActiveLinkColor') !important;
+    }
   }
 }
