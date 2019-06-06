@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
+import Layout from '../components/Layout';
 
 import styles from './Listing.module.scss';
 
@@ -52,14 +53,14 @@ class Listing extends Component {
     });
 
     return (
-      <>
+      <Layout>
         <SEO />
         <ul className={styles.Listing}>{listItems}</ul>
         <div className={styles.ListingPagination}>
           {olderPostsLinkMarkup}
           {newerPostsLinkMarkup}
         </div>
-      </>
+      </Layout>
     );
   }
 }
