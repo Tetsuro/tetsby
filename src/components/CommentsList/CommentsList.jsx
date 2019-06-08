@@ -28,6 +28,7 @@ class CommentsList extends Component {
               <span className={styles.CommentDate}> on {comment.date}</span>
             </span>
             <div
+              className={styles.CommentContent}
               dangerouslySetInnerHTML={{
                 __html: comment.content,
               }}

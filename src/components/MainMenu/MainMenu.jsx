@@ -25,10 +25,9 @@ export default function MainMenu() {
   const [onPostPage, setOnPostPage] = useState(false);
 
   useEffect(() => {
-    console.log('useEffect');
     setOnPostPage(isPostPage());
   });
-  console.log(onPostPage);
+
   //TODO: Override active class when looking at blog post.
 
   const linksMarkup = links.map((link, index) => {
@@ -51,18 +50,13 @@ export default function MainMenu() {
   function isPostPage() {
     const currentPath = globalHistory.location.pathname;
 
-    console.log(currentPath);
     if (
       currentPath === '/' ||
       currentPath.includes('about-me') ||
       currentPath.includes('works')
     ) {
-      console.log('on a main-menu page!');
-      // setOnPostPage(false);
       return false;
     } else {
-      console.log('on a post page!');
-      // setOnPostPage(true);
       return true;
     }
   }
