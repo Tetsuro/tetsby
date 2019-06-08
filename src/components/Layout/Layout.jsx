@@ -72,6 +72,17 @@ export default ({ children }) => (
             github
           }
         }
+        allImageSharp(
+          filter: { original: { src: { regex: "/tetchi-profile/" } } }
+        ) {
+          edges {
+            node {
+              fixed {
+                src
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
