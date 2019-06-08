@@ -29,6 +29,8 @@
 }
 
 .MainMenuLinkIsActive {
+  transition: color 200ms ease;
+
   @include applyTheme($themes) {
     color: themed('navActiveLinkColor') !important;
   }

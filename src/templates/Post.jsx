@@ -50,7 +50,7 @@ class Post extends Component {
     );
 
     return (
-      <Layout>
+      <>
         <SEO
           title={parse(title)}
           description={stripHtml(excerpt)}
@@ -80,7 +80,7 @@ class Post extends Component {
           newerPostSlug={newerPostSlug}
           olderPostSlug={olderPostSlug}
         />
-      </Layout>
+      </>
     );
   }
 }

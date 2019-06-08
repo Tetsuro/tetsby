@@ -53,14 +53,14 @@ class Listing extends Component {
     });
 
     return (
-      <Layout>
+      <>
         <SEO />
         <ul className={styles.Listing}>{listItems}</ul>
         <div className={styles.ListingPagination}>
           {olderPostsLinkMarkup}
           {newerPostsLinkMarkup}
         </div>
-      </Layout>
+      </>
     );
   }
 }

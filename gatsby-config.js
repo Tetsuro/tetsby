@@ -17,6 +17,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/components/Layout'),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: '@import "styles.scss";',

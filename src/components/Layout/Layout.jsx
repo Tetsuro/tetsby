@@ -26,7 +26,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, title, description, twitter, github, isPost } = this.props;
+    const { children, title, description, twitter, github } = this.props;
     const { displayMode } = this.state;
 
     return (
