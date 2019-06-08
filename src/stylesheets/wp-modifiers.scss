@@ -68,6 +68,13 @@
   }
 }
 
+.wp-block-embed-youtube {
+  .wp-block-embed__wrapper {
+    border-radius: get-radius();
+    overflow: hidden;
+  }
+}
+
 blockquote {
   font-style: italic;
 
