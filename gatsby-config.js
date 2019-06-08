@@ -17,6 +17,18 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Tetchi Blog',
+        short_name: 'Tetchi Blog',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#000',
+        display: 'standalone',
+        icon: 'src/images/apple-touch-icon.png',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-layout',
       options: {
         component: require.resolve('./src/components/Layout'),
