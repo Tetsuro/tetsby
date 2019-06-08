@@ -17,16 +17,16 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve('./src/components/Layout'),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         data: '@import "styles.scss";',
         includePaths: ['src/stylesheets'],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-layout',
-      options: {
-        component: require.resolve('./src/components/Layout'),
       },
     },
     'gatsby-plugin-react-helmet',

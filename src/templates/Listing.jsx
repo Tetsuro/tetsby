@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 
 import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
+import Layout from '../components/Layout';
 
 import styles from './Listing.module.scss';
 

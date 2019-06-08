@@ -26,7 +26,7 @@ class Layout extends Component {
   }
 
   render() {
-    const { children, title, description, twitter, github, isPost } = this.props;
+    const { children, title, description, twitter, github } = this.props;
     const { displayMode } = this.state;
 
     return (
@@ -70,6 +70,17 @@ export default ({ children }) => (
             description
             twitter
             github
+          }
+        }
+        allImageSharp(
+          filter: { original: { src: { regex: "/tetchi-profile/" } } }
+        ) {
+          edges {
+            node {
+              fixed {
+                src
+              }
+            }
           }
         }
       }
