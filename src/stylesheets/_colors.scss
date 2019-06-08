@@ -38,6 +38,8 @@ $themes: (
     commentSuccess: get-color('green'),
     commentSuccessBorderColor: get-color('green-light'),
     blockquoteColor: get-color('gray-light'),
+    codeBlockBackgroundColor: get-color('gray-dark'),
+    codeBlockTextColor: get-color('white'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -56,6 +58,8 @@ $themes: (
     commentSuccess: get-color('green'),
     commentSuccessBorderColor: get-color('green-light'),
     blockquoteColor: get-color('white'),
+    codeBlockBackgroundColor: get-color('white'),
+    codeBlockTextColor: get-color('black'),
   ),
 );
 
