@@ -14,7 +14,7 @@
 .CommentsListItem {
   line-height: 1;
   display: flex;
-  margin-bottom: get-spacing();
+  margin-bottom: get-spacing('double');
 }
 
 .CommentThumbnail {
@@ -40,4 +40,10 @@
 
 .CommentDate {
   font-size: rem(14);
+}
+
+.CommentContent {
+  p:last-child {
+    margin-bottom: 0;
+  }
 }

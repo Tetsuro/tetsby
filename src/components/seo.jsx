@@ -51,36 +51,6 @@ function SEO({ description, lang, meta, keywords, title, image }) {
           sizes: '32x32',
           href: `${favicon32}`,
         },
-        // {
-        //   rel: 'icon',
-        //   type: 'apple-touch-icon',
-        //   sizes: '120x120',
-        //   href: `${appleIcon120}`,
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'apple-touch-icon',
-        //   sizes: '152x152',
-        //   href: `${appleIcon152}`,
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'apple-touch-icon',
-        //   sizes: '167x167',
-        //   href: `${appleIcon167}`,
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'apple-touch-icon',
-        //   sizes: '180x180',
-        //   href: `${appleIcon180}`,
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'apple-touch-icon',
-        //   sizes: '150x150',
-        //   href: `${appleIcon}`,
-        // },
       ]}
       meta={[
         {
