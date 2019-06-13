@@ -96,3 +96,13 @@ blockquote {
     color: themed('codeBlockTextColor');
   }
 }
+
+// SMH: Support for old '.sub' classes that I added instead of figcaption 😭
+.sub {
+  text-align: center;
+  margin-bottom: get-spacing('double');
+  // margin-top: get-spacing('half');
+  margin-top: calc(#{get-spacing('double')} * -1);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
