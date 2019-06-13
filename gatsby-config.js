@@ -16,19 +16,19 @@ module.exports = {
   plugins: [
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     trackingId: process.env.GATSBY_GA_TRACK_ID,
-    //     head: true,
-    //     anonymize: true,
-    //     respectDNT: true,
-    //     exclude: ['/preview/**', '/do-not-track/me/too/'],
-    //     sampleRate: 5,
-    //     siteSpeedSampleRate: 10,
-    //     cookieDomain: 'auto',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GATSBY_GA_TRACK_ID,
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'auto',
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
