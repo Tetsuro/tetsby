@@ -33,22 +33,24 @@ class Listing extends Component {
 
     const listItems = nodes.map(item => {
       return (
-        <ListingItem
-          id={item.id}
-          title={item.title}
-          slug={item.slug}
-          date={item.date}
-          featuredImageSrc={
-            item.better_featured_image
-              ? item.better_featured_image.media_details.sizes.medium.source_url
-              : null
-          }
-          featuredImageAltText={
-            item.better_featured_image
-              ? item.better_featured_image.alt_text
-              : null
-          }
-        />
+          <ListingItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            slug={item.slug}
+            date={item.date}
+            featuredImageSrc={
+              item.better_featured_image
+                ? item.better_featured_image.media_details.sizes.medium.source_url
+                : null
+            }
+            featuredImageAltText={
+              item.better_featured_image
+                ? item.better_featured_image.alt_text
+                : null
+            }
+          />
+
       );
     });
 
