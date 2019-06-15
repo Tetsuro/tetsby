@@ -90,11 +90,6 @@ blockquote {
   border-radius: get-radius();
   font-size: rem(14);
   line-height: rem(24);
-
-  // @include applyTheme($themes) {
-  //   background: themed('codeBlockBackgroundColor');
-  //   color: themed('codeBlockTextColor');
-  // }
 }
 
 // SMH: Support for old '.sub' classes that I added instead of figcaption 😭
