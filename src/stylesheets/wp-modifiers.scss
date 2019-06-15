@@ -85,11 +85,9 @@ blockquote {
 }
 
 .wp-block-code {
-  font-family: monospace;
-  padding: get-spacing();
+
   border-radius: get-radius();
-  font-size: rem(14);
-  line-height: rem(24);
+  margin-bottom: get-spacing('double');
 }
 
 // SMH: Support for old '.sub' classes that I added instead of figcaption 😭
