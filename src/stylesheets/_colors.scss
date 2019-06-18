@@ -14,6 +14,10 @@ $colors: (
   'green': #108711,
   'green-light': #d4ffd4,
   'dark-purple': #18191e,
+  'red': #ffe1e4,
+  'red-light': #ffb1b9,
+  'red-dark': #ad000c,
+  'red-darkest': #95030d,
 );
 
 @function get-color($color) {
@@ -37,6 +41,8 @@ $themes: (
     inputDisabledBackgroundColor: get-color('gray-light'),
     commentSuccess: get-color('green'),
     commentSuccessBorderColor: get-color('green-light'),
+    commentFail: get-color('red'),
+    commentFailBorderColor: get-color('red-dark'),
     blockquoteColor: get-color('gray-light'),
     codeBlockBackgroundColor: get-color('gray-dark'),
     codeBlockTextColor: get-color('white'),
@@ -60,6 +66,8 @@ $themes: (
     blockquoteColor: get-color('white'),
     codeBlockBackgroundColor: get-color('white'),
     codeBlockTextColor: get-color('black'),
+    commentFail: get-color('red-light'),
+    commentFailBorderColor: get-color('red-darkest'),
   ),
 );
 
