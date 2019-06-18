@@ -77,3 +77,13 @@
     border: 1px solid themed('commentSuccess');
   }
 }
+
+.CommentFailedMessage {
+  padding: get-spacing();
+
+  @include applyTheme($themes) {
+    color: themed('commentFailBorderColor');
+    background-color: themed('commentFail');
+    border: 1px solid themed('commentFailBorderColor');
+  }
+}

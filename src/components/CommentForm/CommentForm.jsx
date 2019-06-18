@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import parse from 'html-react-parser';
 import { navigate } from 'gatsby';
 import classNames from 'classnames';
 import styles from './CommentForm.module.scss';
 
-const ACTION_URL = `${process.env.GATSBY_WP_PROTOCOL}://${
-  process.env.GATSBY_WP_BASE_URL
-}/wp-json/wp/v2/comments`;
+const ACTION_URL = `${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_BASE_URL}/wp-json/wp/v2/comments`;
 
 class CommentForm extends Component {
   constructor() {
@@ -14,6 +13,8 @@ class CommentForm extends Component {
     this.state = {
       formIsSubmitting: false,
       formSubmittedSuccessfully: false,
+      formSubmittedFailed: false,
+      formErrorMessage: null,
       textAreaValue: '',
     };
   }
@@ -23,6 +24,8 @@ class CommentForm extends Component {
     const {
       formIsSubmitting,
       formSubmittedSuccessfully,
+      formSubmittedFailed,
+      formErrorMessage,
       textAreaValue,
     } = this.state;
     const commentFormClasses = classNames(
@@ -33,8 +36,8 @@ class CommentForm extends Component {
     const submitButtonMarkup = formIsSubmitting ? (
       <input type="submit" value="Submitting comment..." disabled />
     ) : (
-      <input type="submit" value="Post comment!" />
-    );
+        <input type="submit" value="Post comment!" />
+      );
 
     const successMessageMarkup = formSubmittedSuccessfully ? (
       <p className={styles.CommentPostedMessage}>
@@ -42,10 +45,17 @@ class CommentForm extends Component {
       </p>
     ) : null;
 
+    const errorMessageMarkup = formSubmittedFailed && formSubmittedSuccessfully === false ? (
+      <p className={styles.CommentFailedMessage}>
+        {parse(formErrorMessage)}
+      </p>
+    ) : null;
+
     return (
       <div className={commentFormClasses}>
         <h2 id="CommentsHeading">Post a comment</h2>
         {successMessageMarkup}
+        {errorMessageMarkup}
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="hidden" id="postId" value={postId} />
           <div className={styles.FormInputWrapper}>
@@ -107,11 +117,22 @@ class CommentForm extends Component {
       },
       body: sendData,
     })
-      .then(() => {
+      .then((response) => {
+        if (response.ok === true) {
+          this.setState({
+            formIsSubmitting: false,
+            formSubmittedSuccessfully: true,
+            textAreaValue: '',
+          });
+        }
+
+        return response.json();
+      })
+      .then((object) => {
         this.setState({
           formIsSubmitting: false,
-          formSubmittedSuccessfully: true,
-          textAreaValue: '',
+          formSubmittedFailed: true,
+          formErrorMessage: object.message,
         });
       })
       .catch(error => console.error('Error:', error));
