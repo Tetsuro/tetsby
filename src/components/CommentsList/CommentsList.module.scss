@@ -14,7 +14,7 @@
 .CommentsListItem {
   line-height: 1;
   display: flex;
-  margin-bottom: get-spacing('double');
+  margin-bottom: get-spacing('double') !important;
 }
 
 .CommentThumbnail {
