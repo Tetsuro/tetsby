@@ -113,7 +113,11 @@ ol {
 }
 
 li {
-  > ul {
+  &:not(:last-child) {
+    margin-bottom: get-spacing('half');
+  }
+  
+  > ul, ol {
     margin-bottom: 0;
   }
 }
@@ -149,4 +153,17 @@ figcaption {
 
 button {
   cursor: pointer;
+}
+
+p, ul, ol {
+  code {
+    font-family: monospace;
+    font-size: rem(20);
+    padding: get-spacing('quarter');
+    border-radius: get-radius();
+
+    @include applyTheme($themes) {
+      background-color: themed('inlineCodeBackgroundColor');
+    }
+  }
 }

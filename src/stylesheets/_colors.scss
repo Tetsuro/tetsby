@@ -7,7 +7,9 @@ $colors: (
   'blue-light': #60caff,
   'gray': #535353,
   'gray-light': #ddd,
+  'gray-lightest': #efefef,
   'gray-dark': #1c1f2a,
+  'grayish-blue': #3e4760,
   'purple': #609,
   'purple-light': #c17ec5,
   'slate': #35373c,
@@ -46,6 +48,7 @@ $themes: (
     blockquoteColor: get-color('gray-light'),
     codeBlockBackgroundColor: get-color('gray-dark'),
     codeBlockTextColor: get-color('white'),
+    inlineCodeBackgroundColor: get-color('gray-lightest'),
   ),
   dark: (
     backgroundColor: get-color('gray-dark'),
@@ -68,6 +71,7 @@ $themes: (
     codeBlockTextColor: get-color('black'),
     commentFail: get-color('red-light'),
     commentFailBorderColor: get-color('red-darkest'),
+    inlineCodeBackgroundColor: get-color('grayish-blue'),
   ),
 );
 
