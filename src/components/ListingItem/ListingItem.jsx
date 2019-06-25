@@ -12,17 +12,25 @@ export default class ListingItem extends Component {
       slug,
       featuredImageSrc,
       featuredImageAltText,
+      featuredImageMarkup,
       date,
     } = this.props;
 
+    const betterThumbnailMarkup = (
+      <img
+        src={featuredImageSrc ? featuredImageSrc : defaultImage}
+        alt={featuredImageAltText ? featuredImageAltText : ''}
+        className={styles.ListingItemThumbnail}
+      />
+    );
+
+    const thumbnail = featuredImageMarkup
+      ? featuredImageMarkup
+      : betterThumbnailMarkup;
     return (
       <li key={id} className={styles.ListingItem}>
         <Link to={`/${slug}`} className={styles.ListingItemThumbnailWrapper}>
-          <img
-            src={featuredImageSrc ? featuredImageSrc : defaultImage}
-            alt={featuredImageAltText ? featuredImageAltText : ''}
-            className={styles.ListingItemThumbnail}
-          />
+          {thumbnail}
         </Link>
         <div className={styles.ListingItemMeta}>
           <h2 className={styles.ListingItemTitle}>

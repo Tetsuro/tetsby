@@ -119,10 +119,10 @@ module.exports = {
           '**/comments',
           '**/menus',
           '**/better_featured_image',
-          // '**/media',
+          '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
-        normalizer: function({ entities }) {
+        normalizer: function ({ entities }) {
           return entities;
         },
       },
