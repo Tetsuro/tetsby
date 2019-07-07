@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import Header from '../Header';
@@ -7,62 +7,15 @@ import Footer from '../Footer';
 
 import styles from './Layout.module.scss';
 
-class Layout extends Component {
-  constructor() {
-    super();
+export default function Layout({ children }) {
+  const [displayMode, setDisplayMode] = useState('light');
 
-    this.state = {
-      displayMode: 'light',
-    };
-  }
-
-  componentDidMount() {
-    const initialDisplayMode =
-      window.localStorage.getItem('displayMode') || 'light';
-
-    this.setState({
-      displayMode: initialDisplayMode,
-    });
-  }
-
-  render() {
-    const { children, title, description, twitter, github } = this.props;
-    const { displayMode } = this.state;
-
-    return (
-      <div className={styles.Container}>
-        <Helmet htmlAttributes={{ displayMode }} />
-        <Header
-          title={title}
-          description={description}
-          displayMode={displayMode}
-        />
-        <main className={styles.Content}>{children}</main>
-        <Footer
-          twitter={twitter}
-          github={github}
-          toggleDisplayMode={this.toggleDisplayMode.bind(this)}
-          displayMode={displayMode}
-        />
-      </div>
-    );
-  }
-
-  toggleDisplayMode() {
-    const { displayMode } = this.state;
-    const modeToSwitchTo = displayMode === 'dark' ? 'light' : 'dark';
-
-    window.localStorage.setItem('displayMode', modeToSwitchTo);
-
-    this.setState({
-      displayMode: modeToSwitchTo,
-    });
-  }
-}
-
-export default ({ children }) => (
-  <StaticQuery
-    query={graphql`
+  const {
+    site: {
+      siteMetadata: { twitter, github, title, description },
+    },
+  } = useStaticQuery(
+    graphql`
       query {
         site {
           siteMetadata {
@@ -72,28 +25,39 @@ export default ({ children }) => (
             github
           }
         }
-        allImageSharp(
-          filter: { original: { src: { regex: "/tetchi-profile/" } } }
-        ) {
-          edges {
-            node {
-              fixed {
-                src
-              }
-            }
-          }
-        }
       }
-    `}
-    render={data => (
-      <Layout
-        title={data.site.siteMetadata.title}
-        description={data.site.siteMetadata.description}
-        twitter={data.site.siteMetadata.twitter}
-        github={data.site.siteMetadata.github}
-      >
-        {children}
-      </Layout>
-    )}
-  />
-);
+    `
+  );
+
+  useEffect(() => {
+    const initialDisplayMode =
+      window.localStorage.getItem('displayMode') || 'light';
+
+    setDisplayMode(initialDisplayMode);
+  }, []);
+
+  function toggleDisplayMode() {
+    const modeToSwitchTo = displayMode === 'dark' ? 'light' : 'dark';
+
+    window.localStorage.setItem('displayMode', modeToSwitchTo);
+    setDisplayMode(modeToSwitchTo);
+  }
+
+  return (
+    <div className={styles.Container}>
+      <Helmet htmlAttributes={{ displayMode }} />
+      <Header
+        title={title}
+        description={description}
+        displayMode={displayMode}
+      />
+      <main className={styles.Content}>{children}</main>
+      <Footer
+        twitter={twitter}
+        github={github}
+        toggleDisplayMode={toggleDisplayMode}
+        displayMode={displayMode}
+      />
+    </div>
+  );
+}
