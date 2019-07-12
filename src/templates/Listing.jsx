@@ -45,7 +45,6 @@ class Listing extends Component {
       const featuredImageMarkup = fixed ? <Img fixed={fixed} /> : null;
 
       return (
-        // <>{featuredImageMarkup}</>
         <ListingItem
           key={item.id}
           id={item.id}
