@@ -27,15 +27,14 @@ class Post extends Component {
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
     const { edges } = this.props.data.allWordpressWpComments;
     const comments = edges.map(({ node }) => node);
-    const { alt_text, source_url } = featured_media;
-
+    const alt_text = featured_media ? featured_media.alt_text : null;
+    const source_url = featured_media ? featured_media.source_url : null;
     const localFile = featured_media ? featured_media.localFile : null;
-
     const fluid = localFile ? localFile.childImageSharp.fluid : null;
 
-    const featuredImageMarkup = (
+    const featuredImageMarkup = fluid ? (
       <Img fluid={fluid} className={styles.FeaturedImage} alt={alt_text} />
-    );
+    ) : null;
 
     const commentsMarkup = comments.length ? (
       <CommentsList comments={comments} />

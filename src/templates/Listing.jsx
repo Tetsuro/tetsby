@@ -32,8 +32,8 @@ class Listing extends Component {
     );
 
     const listItems = nodes.map(item => {
-      const betterFeaturedImageSrc = item.better_featured_image
-        ? item.better_featured_image.media_details.sizes.medium.source_url
+      const alt_text = item.featured_media
+        ? item.featured_media.alt_text
         : null;
 
       const localFile = item.featured_media
@@ -42,7 +42,9 @@ class Listing extends Component {
 
       const fixed = localFile ? localFile.childImageSharp.fixed : null;
 
-      const featuredImageMarkup = fixed ? <Img fixed={fixed} /> : null;
+      const featuredImageMarkup = fixed ? (
+        <Img fixed={fixed} alt={alt_text} />
+      ) : null;
 
       return (
         <ListingItem
@@ -51,16 +53,6 @@ class Listing extends Component {
           title={item.title}
           slug={item.slug}
           date={item.date}
-          featuredImageSrc={
-            item.better_featured_image
-              ? item.better_featured_image.media_details.sizes.medium.source_url
-              : null
-          }
-          featuredImageAltText={
-            item.better_featured_image
-              ? item.better_featured_image.alt_text
-              : null
-          }
           featuredImageMarkup={featuredImageMarkup}
         ></ListingItem>
       );
@@ -89,21 +81,11 @@ export const query = graphql`
           slug
           date(formatString: "MMMM Do, YYYY")
           featured_media {
+            alt_text
             localFile {
               childImageSharp {
                 fixed(width: 150, height: 150) {
                   ...GatsbyImageSharpFixed
-                }
-              }
-            }
-          }
-          better_featured_image {
-            alt_text
-            source_url
-            media_details {
-              sizes {
-                medium {
-                  source_url
                 }
               }
             }
