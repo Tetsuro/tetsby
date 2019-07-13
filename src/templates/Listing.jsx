@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
@@ -40,11 +39,7 @@ class Listing extends Component {
         ? item.featured_media.localFile
         : null;
 
-      const fixed = localFile ? localFile.childImageSharp.fixed : null;
-
-      const featuredImageMarkup = fixed ? (
-        <Img fixed={fixed} alt={alt_text} />
-      ) : null;
+      const fluid = localFile ? localFile.childImageSharp.fluid : null;
 
       return (
         <ListingItem
@@ -53,7 +48,8 @@ class Listing extends Component {
           title={item.title}
           slug={item.slug}
           date={item.date}
-          featuredImageMarkup={featuredImageMarkup}
+          alt_text={alt_text}
+          fluid={fluid}
         ></ListingItem>
       );
     });
@@ -84,8 +80,8 @@ export const query = graphql`
             alt_text
             localFile {
               childImageSharp {
-                fixed(width: 150, height: 150) {
-                  ...GatsbyImageSharpFixed
+                fluid {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

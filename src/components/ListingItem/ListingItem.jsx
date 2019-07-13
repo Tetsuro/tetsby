@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 
 import styles from './ListingItem.module.scss';
 import defaultImage from '../../images/tetchi-profile.jpg';
 
 export default class ListingItem extends Component {
   render() {
-    const { id, title, slug, featuredImageMarkup, date } = this.props;
+    const { id, title, slug, fluid, date, alt_text } = this.props;
 
-    const thumbnail = featuredImageMarkup ? (
-      featuredImageMarkup
+    const thumbnail = fluid ? (
+      <Img
+        className={styles.ListingItemThumbnail}
+        fluid={fluid}
+        alt={alt_text ? alt_text : null}
+      />
     ) : (
       <img className={styles.ListingItemThumbnail} src={defaultImage} alt="" />
     );

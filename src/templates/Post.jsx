@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import stripHtml from 'string-strip-html';
 import parse from 'html-react-parser';
 
-import Layout from '../components/Layout';
 import SEO from '../components/seo';
 import CommentsList from '../components/CommentsList';
 import CommentForm from '../components/CommentForm';
