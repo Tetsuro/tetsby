@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { Link, graphql } from 'gatsby';
 import stripHtml from 'string-strip-html';
 import parse from 'html-react-parser';
 
@@ -20,20 +19,20 @@ class Post extends Component {
       excerpt,
       wordpress_id,
       date,
+      better_featured_image,
       slug,
-      featured_media,
     } = this.props.data.wordpressPost;
 
     const { newerPostSlug, olderPostSlug } = this.props.pageContext;
     const { edges } = this.props.data.allWordpressWpComments;
     const comments = edges.map(({ node }) => node);
-    const alt_text = featured_media ? featured_media.alt_text : null;
-    const source_url = featured_media ? featured_media.source_url : null;
-    const localFile = featured_media ? featured_media.localFile : null;
-    const fluid = localFile ? localFile.childImageSharp.fluid : null;
 
-    const featuredImageMarkup = fluid ? (
-      <Img fluid={fluid} className={styles.FeaturedImage} alt={alt_text} />
+    const featuredImageMarkup = better_featured_image ? (
+      <img
+        src={better_featured_image.source_url}
+        alt={better_featured_image.alt_text}
+        className={styles.FeaturedImage}
+      />
     ) : null;
 
     const commentsMarkup = comments.length ? (
@@ -55,7 +54,9 @@ class Post extends Component {
         <SEO
           title={parse(title)}
           description={stripHtml(excerpt)}
-          image={source_url}
+          image={
+            better_featured_image ? better_featured_image.source_url : null
+          }
         />
         <h1
           dangerouslySetInnerHTML={{
@@ -95,16 +96,9 @@ export const query = graphql`
       excerpt
       date(formatString: "MMMM Do, YYYY")
       slug
-      featured_media {
-        source_url
+      better_featured_image {
         alt_text
-        localFile {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        source_url
       }
     }
     allWordpressWpComments(

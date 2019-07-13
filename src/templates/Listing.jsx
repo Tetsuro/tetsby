@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
+import Layout from '../components/Layout';
 
 import styles from './Listing.module.scss';
 
@@ -32,29 +32,25 @@ class Listing extends Component {
     );
 
     const listItems = nodes.map(item => {
-      const alt_text = item.featured_media
-        ? item.featured_media.alt_text
-        : null;
-
-      const localFile = item.featured_media
-        ? item.featured_media.localFile
-        : null;
-
-      const fixed = localFile ? localFile.childImageSharp.fixed : null;
-
-      const featuredImageMarkup = fixed ? (
-        <Img fixed={fixed} alt={alt_text} />
-      ) : null;
-
       return (
-        <ListingItem
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          slug={item.slug}
-          date={item.date}
-          featuredImageMarkup={featuredImageMarkup}
-        ></ListingItem>
+          <ListingItem
+            key={item.id}
+            id={item.id}
+            title={item.title}
+            slug={item.slug}
+            date={item.date}
+            featuredImageSrc={
+              item.better_featured_image
+                ? item.better_featured_image.media_details.sizes.medium.source_url
+                : null
+            }
+            featuredImageAltText={
+              item.better_featured_image
+                ? item.better_featured_image.alt_text
+                : null
+            }
+          />
+
       );
     });
 
@@ -80,12 +76,13 @@ export const query = graphql`
           title
           slug
           date(formatString: "MMMM Do, YYYY")
-          featured_media {
+          better_featured_image {
             alt_text
-            localFile {
-              childImageSharp {
-                fixed(width: 150, height: 150) {
-                  ...GatsbyImageSharpFixed
+            source_url
+            media_details {
+              sizes {
+                medium {
+                  source_url
                 }
               }
             }
