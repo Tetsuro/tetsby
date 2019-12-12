@@ -7,18 +7,27 @@ const mockData = {
   site: {
     siteMetadata: {
       twitter: 'mock twitter',
-      github: 'mock github',
+      github: 'mockGithubHandle',
       title: 'mock title',
       description: 'mock description',
     },
   },
 };
 
-jest.mock('../MainMenu', () => 'MockMainMenu');
+jest.mock('../MainMenu', () => 'div');
 
 test('Renders `description`', () => {
   const { container, getByText } = render(<Layout data={mockData} />);
-  expect(container.querySelector('hello')).toBeInTheDocument();
 
-  // expect(getByText('mock description')).toBeInTheDocument();
+  expect(container.querySelector('header')).toBeInTheDocument();
+  expect(getByText(mockData.site.siteMetadata.description)).toBeInTheDocument();
+});
+
+test('Renders `github` handle in URL', () => {
+  const { getByText } = render(<Layout data={mockData} />);
+
+  expect(getByText('Github').closest('a')).toHaveAttribute(
+    'href',
+    `https://www.github.com/${mockData.site.siteMetadata.github}`
+  );
 });
