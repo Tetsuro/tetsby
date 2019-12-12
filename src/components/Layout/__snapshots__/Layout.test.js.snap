@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders \`<Header />\` 1`] = `
+<headerf
+  data={
+    Object {
+      "site": Object {
+        "siteMetadata": Object {
+          "twitter": "mock twitter",
+        },
+      },
+    }
+  }
+/>
+`;

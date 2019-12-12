@@ -49,8 +49,6 @@ export const PureLayout = ({ data, children }) => {
     },
   } = data;
 
-  console.log(data);
-
   return (
     <div className={styles.Container}>
       {/* <Helmet htmlAttributes={{ displayMode }} /> */}

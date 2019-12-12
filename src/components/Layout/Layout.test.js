@@ -1,9 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import renderer from 'react-test-renderer';
-
-import Header from '../Header';
-// import { useStaticQuery } from 'gatsby'; // mocked
 
 import { PureLayout as Layout } from './Layout';
 
@@ -11,15 +7,18 @@ const mockData = {
   site: {
     siteMetadata: {
       twitter: 'mock twitter',
+      github: 'mock github',
+      title: 'mock title',
+      description: 'mock description',
     },
   },
 };
 
-jest.mock('../Header', () => 'headerf');
+jest.mock('../MainMenu', () => 'MockMainMenu');
 
-test('Renders `<Header />`', () => {
-  const { container } = render(<Layout data={mockData} />);
+test('Renders `description`', () => {
+  const { container, getByText } = render(<Layout data={mockData} />);
+  expect(container.querySelector('hello')).toBeInTheDocument();
 
-  console.log(Header);
-  expect(container.querySelector('header')).toBeInTheDocument();
+  // expect(getByText('mock description')).toBeInTheDocument();
 });
