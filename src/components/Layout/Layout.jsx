@@ -39,10 +39,23 @@ export default function Layout({ children }) {
     setDisplayMode(modeToSwitchTo);
   }
 
-  return <PureLayout data={data}>{children}</PureLayout>;
+  return (
+    <PureLayout
+      data={data}
+      displayMode={displayMode}
+      onDisplayModeToggle={toggleDisplayMode}
+    >
+      {children}
+    </PureLayout>
+  );
 }
 
-export const PureLayout = ({ data, children }) => {
+export const PureLayout = ({
+  data,
+  displayMode,
+  children,
+  onDisplayModeToggle,
+}) => {
   const {
     site: {
       siteMetadata: { twitter, github, title, description },
@@ -51,19 +64,19 @@ export const PureLayout = ({ data, children }) => {
 
   return (
     <div className={styles.Container}>
-      {/* <Helmet htmlAttributes={{ displayMode }} /> */}
+      <Helmet htmlAttributes={{ displayMode }} />
       <Helmet />
       <Header
         title={title}
         description={description}
-        // displayMode={displayMode}
+        displayMode={displayMode}
       />
       <main className={styles.Content}>{children}</main>
       <Footer
         twitter={twitter}
         github={github}
-        // toggleDisplayMode={toggleDisplayMode}
-        // displayMode={displayMode}
+        displayMode={displayMode}
+        toggleDisplayMode={onDisplayModeToggle}
       />
     </div>
   );

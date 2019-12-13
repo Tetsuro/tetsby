@@ -31,3 +31,12 @@ test('Renders `github` handle in URL', () => {
     `https://www.github.com/${mockData.site.siteMetadata.github}`
   );
 });
+
+test('Renders `children`', () => {
+  const mockChildren = 'Mock content';
+  const { container, getByText } = render(
+    <Layout data={mockData}>{mockChildren}</Layout>
+  );
+
+  expect(container.querySelector('main').textContent).toBe(mockChildren);
+});
