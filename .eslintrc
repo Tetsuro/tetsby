@@ -1,4 +1,5 @@
 {
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -8,6 +9,7 @@
   },
   "rules": {
     "semi": "error",
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "react/prop-types": 0
   }
 }
