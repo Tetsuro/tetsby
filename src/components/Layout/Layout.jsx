@@ -65,7 +65,6 @@ export const PureLayout = ({
   return (
     <div className={styles.Container}>
       <Helmet htmlAttributes={{ displayMode }} />
-      <Helmet />
       <Header
         title={title}
         description={description}
