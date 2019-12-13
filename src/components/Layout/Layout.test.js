@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import {render} from '@testing-library/react';
 
-import { PureLayout as Layout } from './Layout';
+import {PureLayout as Layout} from './Layout';
 
 const mockData = {
   site: {
@@ -19,16 +19,14 @@ jest.mock('../MainMenu', () => 'div');
 
 test('Renders `children`', () => {
   const mockChildren = 'Mock content';
-  const { container, getByText } = render(
-    <Layout data={mockData}>{mockChildren}</Layout>
-  );
+  const {container} = render(<Layout data={mockData}>{mockChildren}</Layout>);
 
   expect(container.querySelector('main').textContent).toBe(mockChildren);
 });
 
 describe('header', () => {
   test('Renders `title`', () => {
-    const { container } = render(<Layout data={mockData} />);
+    const {container} = render(<Layout data={mockData} />);
 
     expect(container.querySelector('h1').textContent).toBe(
       mockData.site.siteMetadata.title
@@ -36,7 +34,7 @@ describe('header', () => {
   });
 
   test('Renders `description`', () => {
-    const { container, getByText } = render(<Layout data={mockData} />);
+    const {container, getByText} = render(<Layout data={mockData} />);
 
     expect(container.querySelector('header')).toBeInTheDocument();
     expect(
@@ -47,7 +45,7 @@ describe('header', () => {
 
 describe('footer', () => {
   test('Renders `github` handle in URL', () => {
-    const { getByText } = render(<Layout data={mockData} />);
+    const {getByText} = render(<Layout data={mockData} />);
 
     expect(getByText('Github').closest('a')).toHaveAttribute(
       'href',
@@ -56,7 +54,7 @@ describe('footer', () => {
   });
 
   test('Renders `twitter` handle in URL', () => {
-    const { getByText } = render(<Layout data={mockData} />);
+    const {getByText} = render(<Layout data={mockData} />);
 
     expect(getByText('Twitter').closest('a')).toHaveAttribute(
       'href',
@@ -71,7 +69,7 @@ describe('displayMode', () => {
   test.skip('Applies `displaymode="dark" to `html` when passed `dark`', () => {
     const html = document.createElement('html');
 
-    const { container, baseElement } = render(
+    const {container, baseElement} = render(
       <Layout data={mockData} displayMode="dark" />
     );
 

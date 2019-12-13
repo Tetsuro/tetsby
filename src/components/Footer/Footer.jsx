@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import DisplayModeButton from '../DisplayModeButton';
 
 import styles from './Footer.module.scss';
 
 class Footer extends Component {
   render() {
-    const { twitter, github, toggleDisplayMode, displayMode } = this.props;
+    const {twitter, github, toggleDisplayMode, displayMode} = this.props;
 
     return (
       <footer className={styles.Footer}>

@@ -10,6 +10,8 @@ import darkLogo from '../../images/tetchi-burger-dark.gif';
 export default function Header({title, description, displayMode}) {
   const logoSrc = displayMode === 'light' ? logo : darkLogo;
 
+  console.log(darkLogo);
+
   return (
     <header className={styles.Header}>
       <Link className={styles.HeaderHomeLink} to="/">
