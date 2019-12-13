@@ -14,6 +14,7 @@ const mockData = {
   },
 };
 
+// Need to mock MainMenu so that it doesn't call graphQl queries.
 jest.mock('../MainMenu', () => 'div');
 
 test('Renders `children`', () => {
@@ -25,18 +26,32 @@ test('Renders `children`', () => {
   expect(container.querySelector('main').textContent).toBe(mockChildren);
 });
 
-test('Renders `description`', () => {
-  const { container, getByText } = render(<Layout data={mockData} />);
+describe('header', () => {
+  test('Renders `title`', () => {
+    const { container, getByText } = render(<Layout data={mockData} />);
 
-  expect(container.querySelector('header')).toBeInTheDocument();
-  expect(getByText(mockData.site.siteMetadata.description)).toBeInTheDocument();
+    expect(container.querySelector('h1').textContent).toBe(
+      mockData.site.siteMetadata.title
+    );
+  });
+
+  test('Renders `description`', () => {
+    const { container, getByText } = render(<Layout data={mockData} />);
+
+    expect(container.querySelector('header')).toBeInTheDocument();
+    expect(
+      getByText(mockData.site.siteMetadata.description)
+    ).toBeInTheDocument();
+  });
 });
 
-test('Renders `github` handle in URL', () => {
-  const { getByText } = render(<Layout data={mockData} />);
+describe('footer', () => {
+  test('Renders `github` handle in URL', () => {
+    const { getByText } = render(<Layout data={mockData} />);
 
-  expect(getByText('Github').closest('a')).toHaveAttribute(
-    'href',
-    `https://www.github.com/${mockData.site.siteMetadata.github}`
-  );
+    expect(getByText('Github').closest('a')).toHaveAttribute(
+      'href',
+      `https://www.github.com/${mockData.site.siteMetadata.github}`
+    );
+  });
 });
