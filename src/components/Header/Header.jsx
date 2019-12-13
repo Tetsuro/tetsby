@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
+import {Link} from 'gatsby';
 
 import MainMenu from '../MainMenu';
 
@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 import logo from '../../images/tetchi-burger.gif';
 import darkLogo from '../../images/tetchi-burger-dark.gif';
 
-export default function Header({ title, description, displayMode }) {
+export default function Header({title, description, displayMode}) {
   const logoSrc = displayMode === 'light' ? logo : darkLogo;
 
   return (
