@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { globalHistory } from '@reach/router';
+import React, {useState, useEffect} from 'react';
+import {Link, useStaticQuery, graphql} from 'gatsby';
+import {globalHistory} from '@reach/router';
 import classNames from 'classnames';
 
 import styles from './MainMenu.module.scss';
 
 export default function MainMenu() {
   const {
-    wordpressWpApiMenusMenusItems: { items: links },
+    wordpressWpApiMenusMenusItems: {items: links},
   } = useStaticQuery(
     graphql`
       query {

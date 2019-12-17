@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import React, {Component} from 'react';
 
 import styles from './DisplayModeButton.module.scss';
 
 export default class DisplayModeButton extends Component {
   render() {
-    const { toggleDisplayMode, displayMode } = this.props;
+    const {toggleDisplayMode, displayMode} = this.props;
     const oppositeMode = displayMode === 'light' ? 'dark' : 'light';
     const modeEmoji = displayMode === 'light' ? '🌙️' : '☀️';
 
