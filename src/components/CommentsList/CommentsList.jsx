@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import styles from './CommentsList.module.scss';
 
 class CommentsList extends Component {
   render() {
-    const { comments } = this.props;
+    const {comments} = this.props;
 
     const commentList = comments.map(comment => {
       return (

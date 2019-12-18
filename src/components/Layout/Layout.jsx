@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, {useState, useEffect} from 'react';
+import {graphql, useStaticQuery} from 'gatsby';
 import Helmet from 'react-helmet';
 
 import Header from '../Header';
@@ -7,12 +7,12 @@ import Footer from '../Footer';
 
 import styles from './Layout.module.scss';
 
-export default function Layout({ children }) {
+export default function Layout({children}) {
   const [displayMode, setDisplayMode] = useState('light');
 
   const {
     site: {
-      siteMetadata: { twitter, github, title, description },
+      siteMetadata: {twitter, github, title, description},
     },
   } = useStaticQuery(
     graphql`
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
 
   return (
     <div className={styles.Container}>
-      <Helmet htmlAttributes={{ displayMode }} />
+      <Helmet htmlAttributes={{displayMode}} />
       <Header
         title={title}
         description={description}

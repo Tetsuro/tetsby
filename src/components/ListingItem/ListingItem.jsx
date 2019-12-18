@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React, {Component} from 'react';
+import {Link} from 'gatsby';
 import Img from 'gatsby-image';
 
 import styles from './ListingItem.module.scss';
@@ -7,7 +7,7 @@ import defaultImage from '../../images/tetchi-profile.jpg';
 
 export default class ListingItem extends Component {
   render() {
-    const { id, title, slug, fluid, date, alt_text } = this.props;
+    const {id, title, slug, fluid, date, alt_text} = this.props;
 
     const thumbnail = fluid ? (
       <Img

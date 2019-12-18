@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import parse from 'html-react-parser';
-import { navigate } from 'gatsby';
+import {navigate} from 'gatsby';
 import classNames from 'classnames';
 import styles from './CommentForm.module.scss';
 
@@ -20,7 +20,7 @@ class CommentForm extends Component {
   }
 
   render() {
-    const { postId } = this.props;
+    const {postId} = this.props;
     const {
       formIsSubmitting,
       formSubmittedSuccessfully,
@@ -36,8 +36,8 @@ class CommentForm extends Component {
     const submitButtonMarkup = formIsSubmitting ? (
       <input type="submit" value="Submitting comment..." disabled />
     ) : (
-        <input type="submit" value="Post comment!" />
-      );
+      <input type="submit" value="Post comment!" />
+    );
 
     const successMessageMarkup = formSubmittedSuccessfully ? (
       <p className={styles.CommentPostedMessage}>
@@ -45,11 +45,10 @@ class CommentForm extends Component {
       </p>
     ) : null;
 
-    const errorMessageMarkup = formSubmittedFailed && formSubmittedSuccessfully === false ? (
-      <p className={styles.CommentFailedMessage}>
-        {parse(formErrorMessage)}
-      </p>
-    ) : null;
+    const errorMessageMarkup =
+      formSubmittedFailed && formSubmittedSuccessfully === false ? (
+        <p className={styles.CommentFailedMessage}>{parse(formErrorMessage)}</p>
+      ) : null;
 
     return (
       <div className={commentFormClasses}>
@@ -83,7 +82,7 @@ class CommentForm extends Component {
               required
               disabled={formIsSubmitting}
               onChange={evt => {
-                this.setState({ textAreaValue: evt.target.value });
+                this.setState({textAreaValue: evt.target.value});
               }}
               value={textAreaValue}
             />
@@ -97,7 +96,7 @@ class CommentForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
 
-    const { slug } = this.props;
+    const {slug} = this.props;
 
     navigate(`/${slug}#CommentsHeading`);
 
@@ -117,7 +116,7 @@ class CommentForm extends Component {
       },
       body: sendData,
     })
-      .then((response) => {
+      .then(response => {
         if (response.ok === true) {
           this.setState({
             formIsSubmitting: false,
@@ -128,14 +127,17 @@ class CommentForm extends Component {
 
         return response.json();
       })
-      .then((object) => {
+      .then(object => {
         this.setState({
           formIsSubmitting: false,
           formSubmittedFailed: true,
           formErrorMessage: object.message,
         });
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        // eslint-disable-next-line
+        console.error('Error:', error);
+      });
   }
 }
 

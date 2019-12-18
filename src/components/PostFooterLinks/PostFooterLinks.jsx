@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React, {Component} from 'react';
+import {Link} from 'gatsby';
 
 import styles from './PostFooterLinks.module.scss';
 
 class PostFooterLinks extends Component {
   render() {
-    const { newerPostSlug, olderPostSlug } = this.props;
+    const {newerPostSlug, olderPostSlug} = this.props;
 
     const newerPostLinkMarkup = newerPostSlug ? (
       <Link to={`/${newerPostSlug}`} className={styles.NextPost}>
