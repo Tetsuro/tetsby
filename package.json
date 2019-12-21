@@ -13,7 +13,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@testing-library/react": "^9.4.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.14",
@@ -39,6 +38,8 @@
     "string-strip-html": "^4.3.11"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.26",
     "gatsby-plugin-force-trailing-slashes": "^1.0.4",
