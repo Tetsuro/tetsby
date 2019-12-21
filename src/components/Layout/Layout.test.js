@@ -67,11 +67,9 @@ describe('footer', () => {
 // Maybe apply it to <body> or <div class="Container">
 describe('displayMode', () => {
   test.skip('Applies `displaymode="dark" to `html` when passed `dark`', () => {
-    const html = document.createElement('html');
+    // const html = document.createElement('html');
 
-    const {container, baseElement} = render(
-      <Layout data={mockData} displayMode="dark" />
-    );
+    const {container} = render(<Layout data={mockData} displayMode="dark" />);
 
     expect(container.querySelector('div')).toHaveAttribute(
       'displaymode',
