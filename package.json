@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@testing-library/react": "^9.4.0",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "gatsby": "^2.18.14",
