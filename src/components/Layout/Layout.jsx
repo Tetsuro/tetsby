@@ -10,11 +10,7 @@ import styles from './Layout.module.scss';
 export default function Layout({children}) {
   const [displayMode, setDisplayMode] = useState('light');
 
-  const {
-    site: {
-      siteMetadata: {twitter, github, title, description},
-    },
-  } = useStaticQuery(
+  const data = useStaticQuery(
     graphql`
       query {
         site {
@@ -44,6 +40,29 @@ export default function Layout({children}) {
   }
 
   return (
+    <PureLayout
+      data={data}
+      displayMode={displayMode}
+      onDisplayModeToggle={toggleDisplayMode}
+    >
+      {children}
+    </PureLayout>
+  );
+}
+
+export const PureLayout = ({
+  data,
+  displayMode,
+  children,
+  onDisplayModeToggle,
+}) => {
+  const {
+    site: {
+      siteMetadata: {twitter, github, title, description},
+    },
+  } = data;
+
+  return (
     <div className={styles.Container}>
       <Helmet htmlAttributes={{displayMode}} />
       <Header
@@ -55,9 +74,9 @@ export default function Layout({children}) {
       <Footer
         twitter={twitter}
         github={github}
-        toggleDisplayMode={toggleDisplayMode}
         displayMode={displayMode}
+        toggleDisplayMode={onDisplayModeToggle}
       />
     </div>
   );
-}
+};
