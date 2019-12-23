@@ -3,9 +3,6 @@ import {render, fireEvent} from '@testing-library/react';
 
 import DisplayModeButton from './DisplayModeButton';
 
-// Need to mock MainMenu so that it doesn't call graphQl queries.
-jest.mock('../MainMenu', () => 'div');
-
 const mockProps = {
   displayMode: undefined,
   toggleDisplayMode: undefined,
