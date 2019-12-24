@@ -1,0 +1,165 @@
+/* 
+  TODO: This was run through a SCSS compiler manually so that I can apply
+  dark mode styles. Need to figure out how to require a .scss file in 
+  gatsby-browser.js.
+*/
+
+html[displayMode='dark'] code[class*='language-'],
+html[displayMode='dark'] pre[class*='language-'] {
+  color: #abb2bf;
+  background: none;
+  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  box-sizing: border-box;
+}
+html[displayMode='dark'] pre[class*='language-']::selection,
+html[displayMode='dark'] pre[class*='language-'] ::selection,
+html[displayMode='dark'] code[class*='language-']::selection,
+html[displayMode='dark'] code[class*='language-'] ::selection {
+  text-shadow: none;
+  background: #d84315;
+  color: #fff;
+}
+@media print {
+  html[displayMode='dark'] code[class*='language-'],
+  html[displayMode='dark'] pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+html[displayMode='dark'] pre[class*='language-'] {
+  padding: 1rem;
+  overflow: auto;
+  border: 1px solid #282c34;
+}
+html[displayMode='dark'] .entry .entry-content .wp-block-code {
+  border-radius: 8px !important;
+  border: none;
+}
+html[displayMode='dark'] :not(pre) > code[class*='language-'],
+html[displayMode='dark'] pre[class*='language-'] {
+  background: #282c34;
+}
+html[displayMode='dark'] :not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+html[displayMode='dark'] .token.comment,
+html[displayMode='dark'] .token.prolog,
+html[displayMode='dark'] .token.doctype,
+html[displayMode='dark'] .token.cdata {
+  color: #5c6370;
+  /* mkaz: fix for unknown theme (Issue: #46) */
+  border: none;
+  /* mkaz: fix for Twenty Nineteen */
+  padding-left: 0;
+}
+html[displayMode='dark'] .token.punctuation {
+  color: #abb2bf;
+}
+html[displayMode='dark'] .token.selector,
+html[displayMode='dark'] .token.tag {
+  color: #e06c75;
+}
+html[displayMode='dark'] .token.property,
+html[displayMode='dark'] .token.boolean,
+html[displayMode='dark'] .token.number,
+html[displayMode='dark'] .token.constant,
+html[displayMode='dark'] .token.symbol,
+html[displayMode='dark'] .token.attr-name,
+html[displayMode='dark'] .token.deleted {
+  color: #d19a66;
+}
+html[displayMode='dark'] .token.string,
+html[displayMode='dark'] .token.char,
+html[displayMode='dark'] .token.attr-value,
+html[displayMode='dark'] .token.builtin,
+html[displayMode='dark'] .token.inserted {
+  color: #98c379;
+}
+html[displayMode='dark'] .token.operator,
+html[displayMode='dark'] .token.entity,
+html[displayMode='dark'] .token.url,
+html[displayMode='dark'] .language-css .token.string,
+html[displayMode='dark'] .style .token.string {
+  color: #56b6c2;
+}
+html[displayMode='dark'] .token.atrule,
+html[displayMode='dark'] .token.keyword {
+  color: #c678dd;
+}
+html[displayMode='dark'] .token.function {
+  color: #61afef;
+}
+html[displayMode='dark'] .token.regex,
+html[displayMode='dark'] .token.important,
+html[displayMode='dark'] .token.variable {
+  color: #c678dd;
+}
+html[displayMode='dark'] .token.important,
+html[displayMode='dark'] .token.bold {
+  font-weight: bold;
+}
+html[displayMode='dark'] .token.italic {
+  font-style: italic;
+}
+html[displayMode='dark'] .token.entity {
+  cursor: help;
+}
+html[displayMode='dark'] pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+html[displayMode='dark'] pre.line-numbers > code {
+  position: relative;
+}
+html[displayMode='dark'] .line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+html[displayMode='dark'] .line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+html[displayMode='dark'] .line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #5c6370;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+html[displayMode='dark'] .prism-titlename {
+  margin-top: -8px !important;
+  margin-bottom: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  color: orange;
+}
