@@ -15,4 +15,8 @@ module.exports = {
   testURL: 'http://localhost',
   setupFiles: ['<rootDir>/loadershim.js'],
   setupFilesAfterEnv: ['<rootDir>/setup-test-env.js'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };
