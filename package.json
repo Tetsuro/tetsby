@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "setup": "npm install && npm run build && npm run test"
+    "setup": "npm install && npm run test"
   },
   "dependencies": {
     "classnames": "^2.2.6",
