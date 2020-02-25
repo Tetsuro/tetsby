@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/13d72d7f-e0c1-413f-9697-a52612cb8497/deploy-status)](https://app.netlify.com/sites/tetsby/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13d72d7f-e0c1-413f-9697-a52612cb8497/deploy-status)](https://app.netlify.com/sites/tetsby/deploys) [![Build Status](https://travis-ci.com/Tetsuro/tetsby.svg?branch=master)](https://travis-ci.com/Tetsuro/tetsby)
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
