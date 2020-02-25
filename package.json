@@ -10,7 +10,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "setup": "gatsby build && jest"
   },
   "dependencies": {
     "classnames": "^2.2.6",
