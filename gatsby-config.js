@@ -122,7 +122,7 @@ module.exports = {
           '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
-        normalizer: function({ entities }) {
+        normalizer: function({entities}) {
           return entities;
         },
       },
