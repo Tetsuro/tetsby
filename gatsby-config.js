@@ -1,6 +1,8 @@
 let activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
 
+console.log('ENV', activeEnv);
+
 require('dotenv').config({
   path: `.env.${activeEnv}`,
 });
@@ -122,7 +124,7 @@ module.exports = {
           '**/media',
         ],
         excludedRoutes: ['**/posts/1456'],
-        normalizer: function({ entities }) {
+        normalizer: function({entities}) {
           return entities;
         },
       },

@@ -5,6 +5,12 @@ cache:
     - ~/.npm
 notifications:
   email: false
+env:
+  - GATSBY_CONCURRENT_DOWNLOAD=1
+  - GATSBY_GA_TRACK_ID=UA-26860761-1
+  - GATSBY_WP_BASE_URL=wp.tetsutakara.com
+  - GATSBY_WP_PROTOCOL=https
+
 node_js: '12'
 install: echo "install happens as part of setup"
 script: npm run setup
