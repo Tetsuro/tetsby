@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { graphql } from 'gatsby';
+import React, {Component} from 'react';
+import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import stripHtml from 'string-strip-html';
 import parse from 'html-react-parser';
@@ -23,9 +23,9 @@ class Post extends Component {
       featured_media,
     } = this.props.data.wordpressPost;
 
-    const { newerPostSlug, olderPostSlug } = this.props.pageContext;
-    const { edges } = this.props.data.allWordpressWpComments;
-    const comments = edges.map(({ node }) => node);
+    const {newerPostSlug, olderPostSlug} = this.props.pageContext;
+    const {edges} = this.props.data.allWordpressWpComments;
+    const comments = edges.map(({node}) => node);
     const alt_text = featured_media ? featured_media.alt_text : null;
     const source_url = featured_media ? featured_media.source_url : null;
     const localFile = featured_media ? featured_media.localFile : null;
@@ -87,7 +87,7 @@ export default Post;
 
 export const query = graphql`
   query($slug: String!, $wordpressId: Int!) {
-    wordpressPost(slug: { eq: $slug }) {
+    wordpressPost(slug: {eq: $slug}) {
       title
       content
       wordpress_id
@@ -107,8 +107,8 @@ export const query = graphql`
       }
     }
     allWordpressWpComments(
-      filter: { post: { eq: $wordpressId } }
-      sort: { fields: [date] }
+      filter: {post: {eq: $wordpressId}}
+      sort: {fields: [date]}
     ) {
       edges {
         node {

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
+import React, {Component} from 'react';
+import {Link, graphql} from 'gatsby';
 
 import SEO from '../components/seo';
 import ListingItem from '../components/ListingItem';
@@ -8,9 +8,9 @@ import styles from './Listing.module.scss';
 
 class Listing extends Component {
   render() {
-    const { edges } = this.props.data.allWordpressPost;
-    const nodes = edges.map(({ node }) => node);
-    const { currentPage, numberOfPages } = this.props.pageContext;
+    const {edges} = this.props.data.allWordpressPost;
+    const nodes = edges.map(({node}) => node);
+    const {currentPage, numberOfPages} = this.props.pageContext;
 
     const isFirst = currentPage === 1;
     const isLast = currentPage === numberOfPages;
