@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, graphql } from 'gatsby';
+import React, {Component} from 'react';
+import {Link, graphql} from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
@@ -8,7 +8,7 @@ import styles from './Page.module.scss';
 
 class Page extends Component {
   render() {
-    const { title, content } = this.props.data.wordpressPage;
+    const {title, content} = this.props.data.wordpressPage;
 
     return (
       <>
@@ -33,7 +33,7 @@ export default Page;
 
 export const query = graphql`
   query($slug: String!) {
-    wordpressPage(slug: { eq: $slug }) {
+    wordpressPage(slug: {eq: $slug}) {
       title
       content
     }

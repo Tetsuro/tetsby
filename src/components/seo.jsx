@@ -1,17 +1,12 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import {useStaticQuery, graphql} from 'gatsby';
 
 import favicon16 from '../images/favicon-16x16.png';
 import favicon32 from '../images/favicon-32x32.png';
-import appleIcon from '../images/apple-touch-icon.png';
-import appleIcon180 from '../images/apple-touch-icon-180.png';
-import appleIcon167 from '../images/apple-touch-icon-167.png';
-import appleIcon152 from '../images/apple-touch-icon-152.png';
-import appleIcon120 from '../images/apple-touch-icon-120.png';
 
-function SEO({ description, lang, meta, keywords, title, image }) {
-  const { site } = useStaticQuery(
+function SEO({description, lang, meta, keywords, title, image}) {
+  const {site} = useStaticQuery(
     graphql`
       query {
         site {
@@ -25,9 +20,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     `
   );
 
-  const DEFAULT_IMAGE_URL = `${process.env.GATSBY_WP_PROTOCOL}://${
-    process.env.GATSBY_WP_BASE_URL
-  }/wp-content/uploads/2009/07/IMG_4095-e1457208256153.jpg`;
+  const DEFAULT_IMAGE_URL = `${process.env.GATSBY_WP_PROTOCOL}://${process.env.GATSBY_WP_BASE_URL}/wp-content/uploads/2009/07/IMG_4095-e1457208256153.jpg`;
   const metaDescription = description || site.siteMetadata.description;
   const titleTemplate = title ? `${site.siteMetadata.title} » %s` : null;
 
