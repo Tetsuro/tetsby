@@ -16,8 +16,8 @@
     "setup": "npm install && npm run test"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "dotenv": "^8.2.0",
+    "classnames": "^2.3.1",
+    "dotenv": "^8.6.0",
     "gatsby": "^2.24.91",
     "gatsby-cli": "^2.12.113",
     "gatsby-image": "^2.4.21",
@@ -45,7 +45,7 @@
     "@testing-library/react": "^9.5.0",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.36",
-    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
+    "gatsby-plugin-force-trailing-slashes": "^1.0.5",
     "identity-obj-proxy": "^3.0.0",
     "is-ci-cli": "^2.1.2",
     "jest": "^24.9.0",
