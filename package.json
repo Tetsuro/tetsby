@@ -31,7 +31,7 @@
     "gatsby-plugin-sharp": "^2.6.43",
     "gatsby-plugin-twitter": "^2.3.12",
     "gatsby-source-filesystem": "^2.3.37",
-    "gatsby-source-wordpress": "^3.3.41",
+    "gatsby-source-wordpress": "^4.0.8",
     "gatsby-transformer-sharp": "^2.5.20",
     "html-react-parser": "^0.7.1",
     "node-sass": "^4.14.1",
