@@ -87,6 +87,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-wordpress',
       options: {
+        url: process.env.GATSBY_WP_BASE_URL,
         baseUrl: process.env.GATSBY_WP_BASE_URL,
         protocol: process.env.GATSBY_WP_PROTOCOL,
         hostingWPCOM: false,
